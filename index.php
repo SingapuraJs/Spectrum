@@ -7,12 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="head">
-        <button class="botao">INFO</button>
-        <button class="botao" id="botao1">LOGIN</button>
-        <button class="botao" id="botao2">CADASTRO</button>
-    </div>
-    <div id="image1"></div>
-    <div id="image2"></div>
+    <header>
+        <div id="container">
+            <div id="menu">
+                    <a href="#" id="info">INFO</a>
+                <div id="container2">
+                    <a href="#" id="login">LOGIN</a>
+                    <a href="#" id="Registro">REGISTRO</a>  
+                </div>
+            </div>
+        </div>
+    </header>
+
 </body>
-</html>
+</html> 
