@@ -5,8 +5,6 @@ include 'database.php'; // base de dados
 // --------------------------------------------------------------------------
 include 'head.php'; // cabeçalho da página
 // --------------------------------------------------------------------------
-// --------------------------------------------------------------------------
-// --------------------------------------------------------------------------
 
 
 /*----------ESTRUTURA PARA MUDAR A PÁGINA----------*/ 
@@ -24,18 +22,18 @@ if(isset($_GET['pagina'])){
 
 if ($pagina == 'info'){
 
-     include './paginas/info.php'; // página de informações
+     include 'paginas/info.php'; // página de informações
 
 } elseif ($pagina == 'login'){
 
-     include './paginas/login.php'; // página de login
+     include 'paginas/login.php'; // página de login
 
 } elseif ($pagina == 'cadastro'){
 
-     include './paginas/cadastro.php'; // página de cadastro
+     include 'paginas/cadastro.php'; // página de cadastro
 
 } else{
-     include './paginas/home.php'; // página home(inicial)
+     include 'paginas/home.php'; // página home(inicial)
 
 };
 

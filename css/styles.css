@@ -1,15 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
 body {
+    min-height: 1600px; /* Defina a altura mínima desejada em pixels */
     margin: 0%;
-    background-position: auto; 
     background-size: cover;
     background-image: url(https://images.pexels.com/photos/933054/pexels-photo-933054.jpeg?cs=srgb&dl=pexels-joyston-judah-933054.jpg&fm=jpg);
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
     background-color: black;
-    width: 100%;
+    width: auto;
     height: 90px;
+
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
 }
+
 #menu {
     padding: 35px;
 }
@@ -24,10 +42,51 @@ header {
     border-bottom-left-radius: 27px;
     border-bottom-right-radius: 27px;
 }
+
 #CadLogin {
     float: right;
 }
+
 #menu a:hover{
     background-color: rgb(50, 100, 100);
     padding: 25px 25px;
 }
+
+#home {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+
+
+    height: 400px;
+    width: 600px;
+
+    border-color: #e3e3e3;
+    border-style: solid;
+    border-radius: 35px;
+
+    transition: 0.3s;
+}
+
+#home h1 {
+    padding-top: 25%;
+}
+#home a {
+    text-decoration: none;
+    color: #e3e3e3;
+    padding-top: 40%;
+}
+#home:hover {
+    height: 450px;
+    width: 650px;
+}
+
+
+footer {
+    margin-top: auto;
+}
+
