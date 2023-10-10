@@ -7,7 +7,8 @@ $user = "root";
 $pass = "";
 $db = "site_db";
 
-$link = mysqli_connect($server, $user, $pass, $db);
-if($link->error){
-    die("vish bixin deu erro oh " . $link->error);
+$link = new mysqli($server, $user, $pass, $db);
+
+if($link->connect_error){
+    die("falha" . $link->connect_error);
 }

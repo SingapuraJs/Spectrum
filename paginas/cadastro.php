@@ -16,11 +16,17 @@
 
         <input type="submit" value="Cadastrar">
     </form>
+        
 </div> 
 
 <?php 
+
+    //IS SET 
+
+
     if(isset($_POST['usuario']) || isset($_POST['email']) || isset($_POST['senha'])){
 
+        
         if(strlen($_POST['usuario']) == 0) {
             echo "Preencha seu usuario";
         } else if (strlen($_POST['email']) == 0) {
@@ -35,7 +41,7 @@
             $telefone = $_POST['telefone'];
 
             $sql = "INSERT INTO usuarios (usr_usuario, usr_email, usr_senha, usr_telefone) VALUES (?, ?, ?, ?)";
-            $stmt = $link->prepare($sql);
+            $stmt = $link->prepare($sql); 
             $stmt->bind_param("ssss", $usuario, $email, $senha, $telefone);
 
             if ($stmt->execute()) {
@@ -45,6 +51,6 @@
             }
         }
     
-    
+        
     }
 ?>
