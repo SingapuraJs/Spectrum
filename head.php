@@ -7,15 +7,15 @@
 </head>
 <body>
     <header>
-            <div id="menu">
+        <div id="menu">
+            
+            <a href="?pagina=info" id="info">INFO</a>
+            <img src="./image/L02.png" alt="">
+            
+            <div id="CadLogin">
                 
-                    <a href="?pagina=info" id="info">INFO</a>
-
-                <div id="CadLogin">
-
-                    <a href="?pagina=login" id="login">LOGIN</a>
+                <a href="?pagina=login" id="login">LOGIN</a>
                     <a href="?pagina=cadastro" id="Registro">REGISTRO</a>  
-
                 </div>
             </div>
     </header>
