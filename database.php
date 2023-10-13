@@ -1,14 +1,15 @@
-<?php 
+<?php
 
-// -----------ESTABELECENDO CONEXÃO COM O BANCO DE DADOS-----------------------------
+// ----------- ESTABELECENDO CONEXÃO COM O BANCO DE DADOS ----------------------------
 
 $server = "localhost";
 $user = "root";
 $pass = "";
 $db = "site_db";
 
-$link = new mysqli($server, $user, $pass, $db);
-
-if($link->connect_error){
-    die("falha" . $link->connect_error);
+try {
+    $pdo = new PDO("mysql:host=$server;dbname=$db", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Falha: " . $e->getMessage());
 }

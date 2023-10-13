@@ -1,4 +1,11 @@
+<?php
+    if(!isset($_SESSION)){
+        session_start();
+    }
+    require_once('./functions/functions.php');
+    isNOTLogged();
 
+?>
 
 <div id="cadastro" class="content">
 <form action="" method="POST">
@@ -21,9 +28,6 @@
 
 <?php 
 
-    //IS SET 
-
-
     if(isset($_POST['usuario']) || isset($_POST['email']) || isset($_POST['senha'])){
 
         
@@ -41,7 +45,7 @@
             $telefone = $_POST['telefone'];
 
             $sql = "INSERT INTO usuarios (usr_usuario, usr_email, usr_senha, usr_telefone) VALUES (?, ?, ?, ?)";
-            $stmt = $link->prepare($sql); 
+            $stmt = $pdo->prepare($sql); 
             $stmt->bind_param("ssss", $usuario, $email, $senha, $telefone);
 
             if ($stmt->execute()) {
@@ -52,5 +56,5 @@
         }
     
         
-    }
+    } 
 ?>

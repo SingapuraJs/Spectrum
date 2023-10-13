@@ -1,3 +1,8 @@
+<?php 
+    if(!isset($_SESSION))
+        session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,11 +15,19 @@
             <div id="menu">
                 
                     <a href="?pagina=info" id="info">INFO</a>
-
+                    <a href="?pagina=home" id="home">Inicio</a>
                 <div id="CadLogin">
 
-                    <a href="?pagina=login" id="login">LOGIN</a>
-                    <a href="?pagina=cadastro" id="Registro">REGISTRO</a>  
+                    <?php 
+                        if(!isset($_SESSION['id'])){
+                            echo '<a href="?pagina=login" id="login">LOGIN</a>';
+                            echo '<a href="?pagina=cadastro" id="Registro">REGISTRO</a>';  
+                        } else {
+                            echo '<a href="./paginasProtect/logout.php" id="logout">Logout</a>';
+                            echo '<a href="./paginasProtect/perfil.php" id="perfil">Meu perfil</a>';
+                        }
+                    ?>
+
 
                 </div>
             </div>

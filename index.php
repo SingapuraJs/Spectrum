@@ -1,5 +1,10 @@
 <?php 
 
+if(!isset($_SESSION)){
+     session_start();
+}
+
+
 // --------------------------------------------------------------------------
 include 'database.php'; // base de dados
 // --------------------------------------------------------------------------
@@ -32,7 +37,10 @@ if ($pagina == 'info'){
 
      include 'paginas/cadastro.php'; // página de cadastro
 
-} else{
+} 
+
+
+else{
      include 'paginas/home.php'; // página home(inicial)
 
 };
