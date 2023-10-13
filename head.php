@@ -12,7 +12,12 @@
 </head>
 <body>
     <header>
-            <div id="menu">
+        <div id="menu">
+            
+            <a href="?pagina=info" id="info">INFO</a>
+            <img src="./image/L02.png" alt="">
+            
+            <div id="CadLogin">
                 
                     <a href="?pagina=info" id="info">INFO</a>
                     <a href="?pagina=home" id="home">Inicio</a>
