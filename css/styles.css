@@ -32,9 +32,20 @@ header {
     padding: 35px;
 }
 #menu img {
-    width: 64px;
-    height: 64px;
-    margin-left: 45%;
+    background-color: black;
+    position: fixed;
+
+    border-radius: 10px;
+    top: 77px;
+    object-fit: contain;
+    
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+
+    height: 129px;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
 }
 
@@ -48,6 +59,10 @@ header {
     transition: 0.5s;
     border-bottom-left-radius: 27px;
     border-bottom-right-radius: 27px;
+}
+
+#infoHome {
+    float: left;
 }
 
 #CadLogin {

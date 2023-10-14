@@ -13,14 +13,18 @@
 <body>
     <header>
         <div id="menu">
-            
-            <a href="?pagina=info" id="info">INFO</a>
+            <div id="infoHome">
+                <a href="?pagina=info" id="info">INFO</a>
+                <a href="?pagina=home" id="home">Inicio</a>
+            </div>
+
+
             <img src="./image/L02.png" alt="">
             
-            <div id="CadLogin">
+            
                 
-                    <a href="?pagina=info" id="info">INFO</a>
-                    <a href="?pagina=home" id="home">Inicio</a>
+<!-- <a href="?pagina=info" id="info">INFO</a> -->
+                    
                 <div id="CadLogin">
 
                     <?php 
@@ -35,5 +39,5 @@
 
 
                 </div>
-            </div>
+            
     </header>
