@@ -24,4 +24,5 @@ try {
     echo "<div style=\"width: 10px; height: 10px; background-color: green; position: absolute;\"></div>";
 } catch (PDOException $e) {
     die("Falha: " . $e->getMessage());
+    echo "<div style=\"width: 10px; height: 10px; background-color: red; position: absolute;\"></div>";
 }

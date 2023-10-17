@@ -99,7 +99,61 @@ header {
     color: #fff;
 }
 
+#profile {
+    position: fixed;
+    width: 60%;
+    height: 80%;
+    left: 50%;
+    transform: translate(-50%, 10%);
 
+    border-style: solid;
+    border-radius: 35px;
+}
+
+#ProfileImage {
+    background-color: white;
+
+
+    position: absolute;
+    width: 35%;
+    height: 50%;
+    left: 5%;
+    top: 5%;
+    border-radius: 10px;
+}
+
+#ProfileAgenda {
+    background-color: white;
+
+    width: 35%;
+    height: 35%;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    border-radius: 10px;
+}
+
+#ProfileInfo {
+    background-color: white;
+
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    border-radius: 10px;
+}
+
+#EditDelete {
+    background-color: white;
+
+    height: 60px;
+    width: 265px;
+    position: absolute;
+    bottom: 27%;
+    right: 5%;
+    border-radius: 10px;
+}
 
 footer {
     margin-top: auto;
