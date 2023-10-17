@@ -34,6 +34,7 @@ if(isNOTLogged()){
 }
 ?>
 
+
 <div id="login" class="content">
     <form action="" method="POST">
 

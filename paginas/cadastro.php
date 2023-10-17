@@ -46,7 +46,10 @@
 
             $sql = "INSERT INTO usuarios (usr_usuario, usr_email, usr_senha, usr_telefone) VALUES (?, ?, ?, ?)";
             $stmt = $pdo->prepare($sql); 
-            $stmt->bind_param("ssss", $usuario, $email, $senha, $telefone);
+            $stmt->bindValue(1, $usuario, PDO::PARAM_STR);
+            $stmt->bindValue(2, $email, PDO::PARAM_STR);
+            $stmt->bindValue(3, $senha, PDO::PARAM_STR);
+            $stmt->bindValue(4, $telefone, PDO::PARAM_STR);
 
             if ($stmt->execute()) {
                 echo "Cadastro realizado com sucesso!";
