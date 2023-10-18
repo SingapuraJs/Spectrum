@@ -3,7 +3,14 @@
         session_start();
     }
     require_once('../functions/functions.php');
-    isLogged()
+    isLogged();
+
+    include '../database.php';
+
+    print_r(getUser($pdo, $_SESSION['id'])); 
+    print_r(getEmail($pdo, $_SESSION['id'])); 
+    print_r(getNumber($pdo, $_SESSION['id'])); 
+
 ?>
 
 
@@ -18,22 +25,13 @@
 </head>
 <body>
     <div id="profile">
-        <div id="ProfileImage">
-        
-
-        </div>
-    <div id="ProfileAgenda">
-
+        <div id="ProfileImage"></div>
+        <div id="ProfileAgenda"> </div>
+        <div id="ProfileInfo"></div>
+        <div id="EditDelete"></div>
     </div>
-        <div id="ProfileInfo">
 
-
-        </div>
-            <div id="EditDelete">
-                    
-            </div>
-
-    </div>
+    
     
 </body>
 </html>

@@ -12,7 +12,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sql = "CREATE TABLE IF NOT EXISTS usuarios (
-        id_usuarios INT NOT NULL AUTO_INCREMENT,
+        id_usuario INT NOT NULL AUTO_INCREMENT,
         usr_usuario VARCHAR(255) NOT NULL,
         usr_email VARCHAR(255) NOT NULL,
         usr_senha VARCHAR(255) NOT NULL,
