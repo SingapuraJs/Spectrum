@@ -14,7 +14,7 @@ Após a instalação bem-sucedida do XAMPP, clone o projeto em seu ambiente loca
 
 • Abra o terminal (PowerShell ou CMD) e navegue até o diretório C:\xampp.
 • Dentro da pasta XAMPP, acesse a pasta htdocs e execute o comando git clone [URL do projeto]. Isso criará uma cópia do projeto na pasta htdocs com a seguinte • localização: C:\xampp\htdocs\WebSiteOliver\
-Para abrir o projeto no Visual Studio Code, digite o seguinte comando no terminal (ainda dentro da pasta htdocs): code WebSiteOliver.
+• Para abrir o projeto no Visual Studio Code, digite o seguinte comando no terminal (ainda dentro da pasta htdocs): code WebSiteOliver.
 
 ## 3. Configuração do Banco de Dados
 A próxima etapa envolve a configuração do banco de dados necessário para o projeto. Siga as instruções abaixo:
