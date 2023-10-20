@@ -99,7 +99,34 @@ header {
     color: #fff;
 }
 
+#formLogin {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+}
+
+#formLogin form {
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#formCadastro {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+}
+
+#formCadastro form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
 #profile {
+    background-image: linear-gradient(133deg, black, #053b65);
     position: fixed;
     width: 60%;
     height: 80%;
@@ -112,50 +139,118 @@ header {
     padding: 3%;
 }
 
-#ProfileImage {
-    background-color: white;
+.preset {
+    background-image: linear-gradient(180deg, #2b2439, rgb(221 93 110));
+    border: rgb(179, 198, 190);
+    border-radius: 10px;
+    border-style: solid;
+}
 
+#ProfileImage {
+    display: flex;
+    align-items: center;
 
     position: absolute;
     width: 35%;
     height: 50%;
     left: 5%;
     top: 5%;
+}
+
+.card {
+    position: relative;
+    display: flex;
+
+    height: 85%;
+    width: 85%;
+    left: 50%;
+    transform: translate(-50%);
+
+    background-color: white;
     border-radius: 10px;
 }
 
-#ProfileAgenda {
-    background-color: white;
+.card img {
+    border: 5px;
+    border-radius: 49%;
+    border-style: solid;
+    border-color: black;
 
-    width: 35%;
+    position: absolute;
+    height: 50%;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -25%);
+}
+
+#card {
+    position: relative;
+    height: fit-content;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 44px;
+}
+
+#information {
+    display: grid;
+    align-content: space-evenly;
+    justify-items: stretch;
+}
+
+#ProfileAgenda {
+
+    width: 60%;
     height: 35%;
     position: absolute;
     bottom: 5%;
     left: 5%;
-    border-radius: 10px;
 }
 
 #ProfileInfo {
-    background-color: white;
+
+    display: flex;
+    align-items: center;
 
     width: 50%;
     height: 50%;
     position: absolute;
     top: 5%;
     right: 5%;
-    border-radius: 10px;
 }
 
-/** #EditDelete {
-    background-color: white;
+ #EditDelete {
+        position: relative;
+        left: 71%;
+        top: 62%;
 
-    height: 60px;
-    width: 265px;
-    position: absolute;
-    bottom: 27%;
-    right: 5%;
-    border-radius: 10px;
-} */
+      appearance: none;
+      background-color: #000000;
+      border: 2px solid #1A1A1A;
+      border-radius: 15px;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-block;
+      font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      font-size: 16px;
+      font-weight: 600;
+      line-height: normal;
+      margin: 0;
+      min-height: 60px;
+      min-width: 0;
+      outline: none;
+      padding: 16px 24px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+    
+
+
 
 footer {
     margin-top: auto;

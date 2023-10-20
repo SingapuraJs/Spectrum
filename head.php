@@ -15,7 +15,7 @@
         <div id="menu">
             <div id="infoHome">
                 <a href="?pagina=info" id="info">INFO</a>
-                <a href="?pagina=home" id="home">Inicio</a>
+                <a href="./index.php" id="home">Inicio</a>
             </div>
 
 

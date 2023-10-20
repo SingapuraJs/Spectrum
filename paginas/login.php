@@ -35,15 +35,17 @@ if(isNOTLogged()){
 ?>
 
 
-<div id="login" class="content">
+<div id="formLogin" class="content">
     <form action="" method="POST">
 
-        <label for="usuario">Usuario:</label>
+        <label for="usuario">Usuario:
         <input type="text" name="usuario" required><br>
+        </label>
 
-        <label for="senha">Senha:</label>
+        <label for="senha">Senha:
         <input type="password" name="senha" required><br>
-    
+        </label>
+        
         <button type="submit">entrar</button>
     </form>
 </div>

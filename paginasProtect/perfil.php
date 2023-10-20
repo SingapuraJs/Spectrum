@@ -7,9 +7,10 @@
 
     include '../database.php';
 
-    print_r(getUser($pdo, $_SESSION['id'])); 
-    print_r(getEmail($pdo, $_SESSION['id'])); 
-    print_r(getNumber($pdo, $_SESSION['id'])); 
+    $user = getUser($pdo, $_SESSION['id'])[0];
+    $email = getEmail($pdo, $_SESSION['id'])[0];
+    $number = getNumber($pdo, $_SESSION['id'])[0];
+    
 
 ?>
 
@@ -24,11 +25,45 @@
 
 </head>
 <body>
+    <a href="../index.php" style="background-color: red; text-decoration: none; width:fit-content;">voltar</a>
+
     <div id="profile">
-        <div id="ProfileImage"></div>
-        <div id="ProfileAgenda"> </div>
-        <div id="ProfileInfo"></div>
-        <div id="EditDelete"></div>
+
+        <div id="ProfileImage" class="preset"> 
+            <div class="card">
+                <img src="../image/profile.png">
+                <label id="card"><?= $user ?></label>
+            </div>
+        </div>
+
+        
+        <div id="ProfileInfo" class="preset">
+            <div class="card" id="information" style="width: 85%";>
+                <label>Usuario: 
+                    <span"><?=$user?></span>
+                </label>
+
+                <label>Email: 
+                    <span><?=$email?></span>
+                </label>
+
+                <label>Senha: 
+                    <span>*************</span>
+                </label>
+            
+                <label>Telefone: 
+                    
+                <span><?php echo $number ? $number : "Ainda não cadastrado."; ?></span></label>
+            </div>
+
+
+        </div>
+
+
+        <div id="ProfileAgenda" class="preset"> </div>
+        <a href="#" id="EditDelete">Editar</a>
+        <a href="#" id="EditDelete">Delete</a>
+        
     </div>
 
     

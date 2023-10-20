@@ -7,19 +7,15 @@
 
 ?>
 
-<div id="cadastro" class="content">
+<div id="formCadastro" class="content">
 <form action="" method="POST">
-        <label for="usuario">Usuario:</label>
-        <input type="text" name="usuario" required><br><br>
+        <label for="usuario">Usuario: <input type="text" name="usuario" required></label>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" required><br><br>
+        <label for="email">Email: <input type="email" name="email" required></label>
 
-        <label for="senha">Senha:</label>
-        <input type="password" name="senha" required><br><br>
+        <label for="senha">Senha: <input type="password" name="senha" required></label>
 
-        <label for="telefone">Telefone:</label>
-        <input type="telephone" name="telefone"><br><br>
+        <label for="telefone">Telefone: <input type="telephone" name="telefone"></label>
 
         <input type="submit" value="Cadastrar">
     </form>
