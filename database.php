@@ -17,7 +17,7 @@ try {
         usr_email VARCHAR(255) NOT NULL,
         usr_senha VARCHAR(255) NOT NULL,
         usr_telefone VARCHAR(11) NULL,
-        PRIMARY KEY (id_usuarios)
+        PRIMARY KEY (id_usuario)
     ) ENGINE = InnoDB";
 
     $pdo->exec($sql);
