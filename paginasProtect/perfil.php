@@ -7,9 +7,11 @@
 
     include '../database.php';
 
-    $user = getUser($pdo, $_SESSION['id'])[0];
-    $email = getEmail($pdo, $_SESSION['id'])[0];
-    $number = getNumber($pdo, $_SESSION['id'])[0];
+    $userCredentials = getUserCredentials($pdo, $_SESSION['id']);
+
+    $user = $userCredentials[0];
+    $email = $userCredentials[1];
+    $number = $userCredentials[2] ? $userCredentials[2] : "Ainda não cadastrado";
     
 
 ?>
@@ -53,7 +55,7 @@
             
                 <label>Telefone: 
                     
-                <span><?php echo $number ? $number : "Ainda não cadastrado."; ?></span></label>
+                <span><?= $number; ?></span></label>
             </div>
 
 
