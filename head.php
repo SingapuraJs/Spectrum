@@ -17,7 +17,7 @@ if (!isset($_SESSION))
     <header>
 
         <div id="menu">
-            
+
             <div id="infoHome">
                 <a href="?pagina=info" id="info">INFO</a>
                 <a href="./index.php" id="home">Inicio</a>
@@ -28,6 +28,7 @@ if (!isset($_SESSION))
         <div id="CadLogin">
 
             <?php if (!isset($_SESSION['id'])) : ?>
+                
                 <a href="?pagina=login" id="login">LOGIN</a>
                 <a href="?pagina=cadastro" id="Registro">REGISTRO</a>
 

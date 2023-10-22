@@ -1,10 +1,13 @@
 <?php
+    include './database.php';
+
     if(!isset($_SESSION)){
         session_start();
     }
     require_once('./functions/functions.php');
     isNOTLogged();
-
+    
+    
 ?>
 
 <div id="formCadastro" class="content">
@@ -23,8 +26,7 @@
 </div> 
 
 <?php 
-
-    if(isset($_POST['usuario']) || isset($_POST['email']) || isset($_POST['senha'])){
+        if(isset($_POST['usuario']) || isset($_POST['email']) || isset($_POST['senha'])){
 
         
         if(strlen($_POST['usuario']) == 0) {
@@ -40,18 +42,26 @@
             $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT); 
             $telefone = $_POST['telefone'];
 
-            $sql = "INSERT INTO usuarios (usr_usuario, usr_email, usr_senha, usr_telefone) VALUES (?, ?, ?, ?)";
-            $stmt = $pdo->prepare($sql); 
-            $stmt->bindValue(1, $usuario, PDO::PARAM_STR);
-            $stmt->bindValue(2, $email, PDO::PARAM_STR);
-            $stmt->bindValue(3, $senha, PDO::PARAM_STR);
-            $stmt->bindValue(4, $telefone, PDO::PARAM_STR);
+            if(checkCredentials($pdo, $usuario, $email)) {
+                
+                $sql = "INSERT INTO usuarios (usr_usuario, usr_email, usr_senha, usr_telefone) VALUES (?, ?, ?, ?)";
+                $stmt = $pdo->prepare($sql); 
+                $stmt->bindValue(1, $usuario, PDO::PARAM_STR);
+                $stmt->bindValue(2, $email, PDO::PARAM_STR);
+                $stmt->bindValue(3, $senha, PDO::PARAM_STR);
+                $stmt->bindValue(4, $telefone, PDO::PARAM_STR);
+    
+                if ($stmt->execute()) {
+                    echo "Cadastro realizado com sucesso!";
+                } else {
+                    echo "Erro no cadastro: " . implode(", ", $stmt->errorInfo());
+                }
 
-            if ($stmt->execute()) {
-                echo "Cadastro realizado com sucesso!";
             } else {
-                echo "Erro no cadastro: " . $stmt->error;
+                
+                echo "<h1 style=\"color:red;\">usuario ou email ja cadastrados</h1>";
             }
+
         }
     
         

@@ -5,7 +5,8 @@
     require_once('../functions/functions.php');
     isLogged();
 
-    include '../database.php';
+    require_once('../database.php');
+    
 
     $userCredentials = getUserCredentials($pdo, $_SESSION['id']);
 

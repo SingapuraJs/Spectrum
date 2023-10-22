@@ -1,5 +1,6 @@
 <?php
 require_once('./functions/functions.php');
+require_once('database.php');
 
 if(!isset($_SESSION)){
     session_start();
