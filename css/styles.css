@@ -112,13 +112,13 @@ header {
     align-items: flex-end;
 }
 
-#formCadastro {
+#formCadastro, #formEdit {
     display: flex;
     align-items: baseline;
     justify-content: space-around;
 }
 
-#formCadastro form {
+#formCadastro form, #formEdit form {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -219,7 +219,7 @@ header {
     right: 5%;
 }
 
- #EditDelete {
+ #edit-btn, #delete-btn {
         position: relative;
         left: 71%;
         top: 62%;

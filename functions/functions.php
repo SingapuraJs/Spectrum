@@ -38,7 +38,7 @@ function checkCredentials($pdo, $user, $email){
 }
 
 function getUserCredentials($pdo, $id){
-     $sql = "SELECT usr_usuario, usr_email, usr_telefone FROM usuarios WHERE id_usuario = :id";
+     $sql = "SELECT usr_usuario, usr_email, usr_telefone, usr_senha FROM usuarios WHERE id_usuario = :id";
      $stmt = $pdo->prepare($sql);
      $stmt->bindParam(':id', $id, PDO::PARAM_INT);
      $stmt->execute();

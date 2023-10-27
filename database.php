@@ -21,6 +21,7 @@ try {
     ) ENGINE = InnoDB";
 
     $pdo->exec($sql);
+
     echo "<div style=\"width: 10px; height: 10px; background-color: green; position: absolute; bottom: 0;\"></div>";
 } catch (PDOException $e) {
     die("Falha: " . $e->getMessage());

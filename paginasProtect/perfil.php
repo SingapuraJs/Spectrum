@@ -10,7 +10,7 @@
 
     $userCredentials = getUserCredentials($pdo, $_SESSION['id']);
 
-    $user = $userCredentials[0];
+    $username = $userCredentials[0];
     $email = $userCredentials[1];
     $number = $userCredentials[2] ? $userCredentials[2] : "Ainda não cadastrado";
     
@@ -35,7 +35,7 @@
         <div id="ProfileImage" class="preset"> 
             <div class="card">
                 <img src="../image/profile.png">
-                <label id="card"><?= $user ?></label>
+                <label id="card"><?= $username ?></label>
             </div>
         </div>
 
@@ -43,7 +43,7 @@
         <div id="ProfileInfo" class="preset">
             <div class="card" id="information" style="width: 85%";>
                 <label>Usuario: 
-                    <span"><?=$user?></span>
+                    <span"><?=$username?></span>
                 </label>
 
                 <label>Email: 
@@ -64,8 +64,8 @@
 
 
         <div id="ProfileAgenda" class="preset"> </div>
-        <a href="#" id="EditDelete">Editar</a>
-        <a href="#" id="EditDelete">Delete</a>
+        <a href="edit.php" id="edit-btn">Editar</a>
+        <a href="delete.php" id="delete-btn">Delete</a>
         
     </div>
 
