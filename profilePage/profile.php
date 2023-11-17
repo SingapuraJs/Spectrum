@@ -34,7 +34,7 @@
 
         <div id="ProfileImage" class="preset"> 
             <div class="card">
-                <img src="../image/profile.png">
+                <img src="../assets/profile.png">
                 <label id="card"><?= $username ?></label>
             </div>
         </div>

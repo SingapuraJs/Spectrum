@@ -14,7 +14,7 @@
     $email = $userCredentials[1];
     $number = $userCredentials[2] ? $userCredentials[2] : "Ainda não cadastrado";
     $hashSenha = $userCredentials[3];
-    echo $hashSenha;
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $newUsername = $_POST['usuario'] !== $username ? $_POST['usuario'] : null;

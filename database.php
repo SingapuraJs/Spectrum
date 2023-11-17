@@ -2,7 +2,7 @@
 
 // ----------- ESTABELECENDO CONEXÃO COM O BANCO DE DADOS ----------------------------
 
-$server = "localhost";
+$server = "localhost:3307";
 $user = "root";
 $pass = "";
 $db = "site_db";

@@ -23,19 +23,19 @@ if (!isset($_SESSION))
                 <a href="./index.php" id="home">Inicio</a>
             </div>
 
-        <img src="./image/L02.png" alt="">
+        <img src="./assets/logo.png" alt="">
 
         <div id="CadLogin">
 
             <?php if (!isset($_SESSION['id'])) : ?>
                 
                 <a href="?pagina=login" id="login">LOGIN</a>
-                <a href="?pagina=cadastro" id="Registro">REGISTRO</a>
+                <a href="?pagina=register" id="Registro">REGISTRO</a>
 
             <?php else : ?>
 
-                <a href="./paginasProtect/logout.php" id="logout">Logout</a>
-                <a href="./paginasProtect/perfil.php" id="perfil">Meu perfil</a>
+                <a href="./profilePage/logout.php" id="logout">Logout</a>
+                <a href="./profilePage/profile.php" id="perfil">Meu perfil</a>
 
             <?php endif; ?>
 
