@@ -2,10 +2,11 @@
     if(!isset($_SESSION)){
         session_start();
     }
-    require_once('../functions/functions.php');
+    echo "bbbb";
+    require_once('./func/functions.php');
     isLogged();
-
-    require_once('../database.php');
+    echo "bbbddb";
+    require_once('./config/database.php');
     
 
     $userCredentials = getUserCredentials($pdo, $_SESSION['id']);
@@ -63,7 +64,6 @@
         </div>
 
 
-        <div id="ProfileAgenda" class="preset"> </div>
         <a href="edit.php" id="edit-btn">Editar</a>
         <a href="delete.php" id="delete-btn">Delete</a>
         

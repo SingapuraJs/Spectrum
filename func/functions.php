@@ -3,7 +3,7 @@ function isLogged(){
     if(isset($_SESSION['id'])){
          return TRUE;
     } else {
-         header("location: ../index.php");
+         header("location: ../../");
     }
 }
 

@@ -1,29 +1,57 @@
 <?php
-    include("./database.php");
+    include("./config/database.php");
 
     if(!isset($_SESSION)){
         session_start();
     }
-    require_once('./functions/functions.php');
+    require_once('./func/functions.php');
     isNOTLogged();
     
     
 ?>
+<div class="my-5 d-flex align-items-center justify-content-center">
 
-<div id="formCadastro" class="content">
-<form action="" method="POST">
-        <label for="usuario">Usuario: <input type="text" name="usuario" required></label>
+    <div class="border border-dark rounded p-5">
 
-        <label for="email">Email: <input type="email" name="email" required></label>
+        <form action="" method="POST">
+    
+            <div class="form-group">
+    
+                <label>Usuário</label>
+                <input type="text" class="form-control" name="usuario" required placeholder="Digite seu usuário.">
+    
+            </div>
+    
+            <div class="form-group">
+                
+                <label>E-mail</label>
+                <input type="email" class="form-control" name="email" required placeholder="Digite seu E-mail.">
+    
+            </div>
+            
+            <div class="form-group">
+             
+                <label>Senha</label>
+                <input type="password" class="form-control" name="senha" required placeholder=" Digite sua senha.">
+    
+            </div>
+    
+            <div class="form-group">
+    
+                <label for="phoneNumber">Telefone</label>
+                <input type="tel" class="form-control" name="telefone" placeholder="(00) 91234-4567">
+      
+            </div>
+    
+            <div class="float-end">
+                <button type="submit" class="btn btn-dark mt-4">Enviar</button>
+            </div>
+            
+        </form>
 
-        <label for="senha">Senha: <input type="password" name="senha" required></label>
+    </div>
 
-        <label for="telefone">Telefone: <input type="telephone" name="telefone"></label>
-
-        <input type="submit" value="Cadastrar">
-    </form>
-        
-</div> 
+</div>
 
 <?php 
         if(isset($_POST['usuario']) || isset($_POST['email']) || isset($_POST['senha'])){

@@ -2,13 +2,14 @@
 
 // ----------- ESTABELECENDO CONEXÃO COM O BANCO DE DADOS ----------------------------
 
-$server = "localhost:3307";
-$user = "root";
-$pass = "";
-$db = "site_db";
+$server = $_ENV['DB_HOST'];
+$port = $_ENV['DB_PORT'];
+$user = $_ENV['DB_USER'];
+$pass = $_ENV['DB_PASSWORD'];
+$db = $_ENV['DB_NAME'];
 
 try {
-    $pdo = new PDO("mysql:host=$server;dbname=$db", $user, $pass);
+    $pdo = new PDO("mysql:host=$server;port=$port;dbname=$db", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sql = "CREATE TABLE IF NOT EXISTS usuarios (
@@ -28,9 +29,7 @@ try {
             data_agendamento DATE NOT NULL
             );";
     $pdo->exec($sql);
-
     
-    echo "<div style=\"width: 10px; height: 10px; background-color: green; position: absolute;\"></div>";
 } catch (PDOException $e) {
     die("Falha: " . $e->getMessage());
     echo "<div style=\"width: 10px; height: 10px; background-color: red; position: absolute; bottom: 0;\"></div>";

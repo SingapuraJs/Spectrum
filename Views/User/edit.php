@@ -2,10 +2,10 @@
     if(!isset($_SESSION)){
         session_start();
     }
-    require_once('../functions/functions.php');
+    require_once('./func/functions.php');
     isLogged();
 
-    require_once('../database.php');
+    require_once('./config/database.php');
     
 
     $userCredentials = getUserCredentials($pdo, $_SESSION['id']);
