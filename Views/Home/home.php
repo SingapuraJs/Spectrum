@@ -1,4 +1,10 @@
-<div id="home" class="content" >
-    <h1>Tela de Inicio</h1>
-    <a href="#" rel="noopener noreferrer"> Seja bem-vindo ! </a>
+<div style="height: 100vh;">
+
+    <div class="content bg-primary" style="height: 60%;" >
+        <!-- aq vem o card de boas vindas--> INICIO
+    </div>
+
+    <div class="content bg-secondary" style="height: 60%;" >
+        <!-- aq vem O INFO--> INFORMACOES
+    </div>
 </div> 
