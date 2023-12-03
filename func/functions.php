@@ -1,24 +1,31 @@
-<?php 
+<?php
+$test = 'test';
 function isLogged(){
-    if(isset($_SESSION['id'])){
-         return TRUE;
+    if (isset($_SESSION['logged']) && ($_SESSION['logged'])){
+         return true;
     } else {
          header("location: ../../");
+         exit;
     }
 }
 
 function isNOTLogged(){
-    if(!isset($_SESSION['id'])){
-         return TRUE;
+    if(!isset($_SESSION['logged']) || !($_SESSION['Logged'])){
+         return true;
     } else {
          header("location: index.php");
+         exit;
     }
 }
 
 function logOut(){
-    session_start();
-    session_unset();
-    session_destroy();
+     session_start();
+     echo"start";
+     session_unset();
+     echo"unset";
+     session_destroy();
+     echo"destroyed";
+     session_commit();
 }
 
 function checkCredentials($pdo, $user, $email){

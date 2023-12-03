@@ -3,13 +3,29 @@
         session_start();
     }
     echo "bbbb";
-    require_once('./func/functions.php');
+    require_once(__DIR__ . '/../../func/functions.php');
     isLogged();
     echo "bbbddb";
-    require_once('./config/database.php');
+
+    echo "<pre>";
+    var_dump($_SESSION);
+    echo "</pre>";
+
+    require_once __DIR__ . '/../../vendor/autoload.php';
+
+
+    use Dotenv\Dotenv;
+
+    $dotenv = Dotenv::createImmutable(__DIR__ . '/../../'); // Use barras invertidas
+
+    $dotenv->load();
     
 
-    $userCredentials = getUserCredentials($pdo, $_SESSION['id']);
+
+    require_once(__DIR__ . '/../../config/database.php');
+    
+
+    $userCredentials = getUserCredentials($pdo, $_SESSION['user']['id']);
 
     $username = $userCredentials[0];
     $email = $userCredentials[1];

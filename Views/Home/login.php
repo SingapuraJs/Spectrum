@@ -1,7 +1,9 @@
 <?php
 
-require_once('./func/functions.php');
-require_once('./config/database.php');
+require_once(__DIR__ . '/../../func/functions.php');
+require_once(__DIR__ . '/../../config/database.php');
+
+echo $test;
 
 if(!isset($_SESSION)){
     session_start();
@@ -18,10 +20,21 @@ if(isNOTLogged()){
         $stmt->bindParam(':usuario', $usuario);
         $stmt->execute();
 
-        $retorno = $stmt->fetch();
+        $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
+        echo "<pre> "; 
+        var_dump($retorno);
+        echo "</pre>";
         if ($retorno) {
-            if (password_verify($senha, $retorno['usr_senha'])) { // login realizado
-                $_SESSION['id'] = $retorno['id_usuario'];
+            if (password_verify($senha, $retorno["usr_senha"])) { // login realizado
+                session_regenerate_id(true);
+
+                $_SESSION["logged"] = true;
+                
+                $_SESSION['user'] = [
+                    'username' => $retorno['usr_usuario'],
+                    'id' => $retorno['id_usuario'],
+                ];
+                
                 header("location: index.php");
             } else {
                 echo "Usuário ou senha incorretos";

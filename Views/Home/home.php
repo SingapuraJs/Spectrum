@@ -1,3 +1,8 @@
+
+<?php 
+var_dump ($_SESSION);
+?>
+
 <style>
     .div_informacoes {
         width: 30%;
@@ -37,3 +42,5 @@
         </div>
     </div>
 </div>
+
+

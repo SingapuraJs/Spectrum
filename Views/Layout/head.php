@@ -24,7 +24,7 @@
                     </ul>
                 </div>
 
-                <?php if (!isset($_SESSION['id'])) : ?>
+                <?php if (!isset($_SESSION['logged']) || !($_SESSION['logged'])) : ?>
                     <div class="ml-auto">
                         <a href="?pagina=login" class="btn btn-outline-light">Login</a>
                         <a href="?pagina=register" class="btn btn-outline-light">Registro</a>

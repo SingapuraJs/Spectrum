@@ -1,7 +1,11 @@
-<?php 
+<?php
+// No arquivo logout.php que está dentro de /views/user
+require_once(__DIR__ . '/../../func/functions.php');
 
-session_start();
-session_unset();
-session_destroy();
- header("location: ../../");
+echo $test;
+logOut();
+session_regenerate_id(true);
+
+header  ('location: ../../index.php');
+
 ?>
