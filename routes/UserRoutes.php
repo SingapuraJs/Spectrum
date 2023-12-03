@@ -1,8 +1,7 @@
 <?php
 
-use Controller\UserController;
 use Controller\AuthController;
-
+use Controller\UserController;
 
 Flight::route('GET /register', [new UserController(), 'create']);
 Flight::route('POST /register', [new UserController(), 'store']);

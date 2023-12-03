@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use Controller\HomeController;
 
