@@ -2,7 +2,7 @@
 
 @section('body')
 
-
+{{ "eu sou o login" }}
 
 
 @endsection

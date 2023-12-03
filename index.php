@@ -9,15 +9,8 @@ $dotenv->load();
 
 session_start();
 
-use Controller\BaseController;
 
-Flight::route('/', function () {
-     $controller = new BaseController();
-     echo $controller->blade->render('home');
- });
- 
-require __DIR__ . '/routes/UserRoutes.php';
-
+require __DIR__ . '/routes/routes.php';
  
  Flight::start();
 

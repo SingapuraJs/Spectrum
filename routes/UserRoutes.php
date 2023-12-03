@@ -3,6 +3,7 @@
 use Controller\UserController;
 use Controller\AuthController;
 
+
 Flight::route('GET /register', [new UserController(), 'create']);
 Flight::route('POST /register', [new UserController(), 'store']);
 

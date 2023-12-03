@@ -10,9 +10,8 @@
 </head>
 <body>
 
-    <a href="/todo">todo</a>
-    <a href="/login">login</a>
-    <a href="/register">register</a>
+    <a href="./login">login</a>
+    <a href="./register">register</a>
 
 
 @yield('body')

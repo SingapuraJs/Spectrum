@@ -15,7 +15,7 @@ class AuthController extends BaseController
 
     public function login()
     {
-        echo $this->blade->render('User/login');
+        echo $this->blade->render('user.login');
     }
 
     public function auth()

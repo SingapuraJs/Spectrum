@@ -2,7 +2,7 @@
 
 @section('body')
 
-{{ "dsdsdsdsdsd" }}
+{{ "eu sou o register" }}
 
 
 @endsection
