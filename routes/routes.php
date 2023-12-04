@@ -1,22 +1,24 @@
 <?php
 
 use Controller\HomeController;
+use Controller\UserController;
+
 
 Flight::route('/', function () {
     $controller = new HomeController();
     echo $controller->index();
 });
 
-Flight::route('/home', function () {
-    $controller = new HomeController();
-    echo $controller->index();
+/* ----------------------------------------------------- */
+
+Flight::route('GET /register', function () {
+    $controller = new UserController();
+    echo $controller->create();
 });
 
-Flight::route('/about', function () {
-    $controller = new HomeController();
-//    echo $controller->about();
-});
 
+
+/*--------------------------------------------------------*/
 
 require __DIR__ . '/UserRoutes.php';
 ?>
