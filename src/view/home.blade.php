@@ -2,49 +2,41 @@
 
 @section('body')
 
-
-<style>
-    .div_informacoes {
-        width: 30%;
-        background-color: red;
-    }
-</style>
-
-
-<div style="height: 100vh;">
-
-    <div class="content bg-primary" style="height: 60%; display: flex; align-items: center;">
-        <!-- aq vem o card de boas vindas-->
-        <div class="bg-light content border rounded" style="height: 80%; width: 35%; margin-left: 3vw; max-width: 400px;">
-            @php
-                print_r($_SESSION);
-            @endphp
+        <div class="content bg-primary d-flex align-items-center justify-content-center" style="height: 70vh;">
+            <!-- aq vem o card de boas vindas-->
+            <div class="bg-light content border rounded w-75 h-75">
+                @php
+                    print_r($_SESSION);
+                @endphp
+            </div>
         </div>
-    </div>
 
-    <div class="content bg-secondary" style="height: 60%; width: 100%;">
-        <!-- aq vem O INFO--> 
-        <p style="text-align: center;">INFORMACOES</p>
-        <div style=" width: 100%; height: 90%; display: flex; justify-content: space-around;">
-            <div class="div_informacoes">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore saepe necessitatibus corrupti nesciunt omnis quae facilis dicta deserunt voluptates incidunt ullam dignissimos quidem nemo blanditiis, at vitae pariatur molestiae aliquid?
+        <div class="container my-5 " >
+            <div class="row">
 
-            </div>
+                <div class="col-12 col-sm-4">
 
-            <div class="div_informacoes">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore saepe necessitatibus corrupti nesciunt omnis quae facilis dicta deserunt voluptates incidunt ullam dignissimos quidem nemo blanditiis, at vitae pariatur molestiae aliquid?
+                    <div class="mx-2 my-2" style="background-color: #000000; height: 50vh;"></div>
 
-            </div>
+                </div>
 
-            <div class="div_informacoes">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore saepe necessitatibus corrupti nesciunt omnis quae facilis dicta deserunt voluptates incidunt ullam dignissimos quidem nemo blanditiis, at vitae pariatur molestiae aliquid?
+                <div class="col-12 col-sm-4">
+
+                    <div class="mx-2 my-2" style="background-color: #000000; (2, 2, 2); height: 50vh;"></div>
+
+                </div>
+
+                <div class="col-12 col-sm-4">
+
+                    <div class="mx-2 my-2" style="background-color: #000000; height: 50vh;"></div>
+
+                </div>
 
             </div>
 
         </div>
-    </div>
-</div>
 
 
 
 @endsection
+

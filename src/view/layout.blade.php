@@ -19,7 +19,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="./info">Info</a>
+                            <a class="nav-link text-white" href="./about">Info</a>
                         </li>
                     </ul>
                 </div>
@@ -34,10 +34,18 @@
         </div>
     </header>
   
+    <main class="container mt-2">
+        <!-- Conteúdo dinâmico -->
+        @yield('body')
+    </main>
 
-@yield('body')
-
+<footer class="bg-success" style="height: 35vh">
+    <div class="container">aaaa
+    </div>
+  </footer>
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+
 </body>
 </html> 
