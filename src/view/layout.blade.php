@@ -6,6 +6,7 @@
 
     <title>Sua Página</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
     <!-- Adicione aqui os seus estilos personalizados, se necessário -->
 </head>
 <body>
@@ -39,10 +40,9 @@
         @yield('body')
     </main>
 
-<footer class="bg-success" style="height: 35vh">
-    <div class="container">aaaa
-    </div>
-  </footer>
+<footer class="bg-success d-flex align-items-center justify-content-center" style="height: 35vh">
+    <div class="container">dsdsd</div>
+</footer>
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 

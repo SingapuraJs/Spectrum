@@ -14,7 +14,7 @@ Flight::route('/home', function () {
 
 Flight::route('/about', function () {
     $controller = new HomeController();
-//    echo $controller->about();
+    echo $controller->about();
 });
 
 
