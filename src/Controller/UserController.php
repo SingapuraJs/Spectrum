@@ -4,7 +4,9 @@ namespace Controller;
 
 use Controller\BaseController;
 use Controller\AuthController;
+
 use Model\UserModel;
+
 class UserController extends BaseController
 {
     private $auth;
@@ -17,7 +19,7 @@ class UserController extends BaseController
     }
 
     public function create(){
-        echo $this->blade->render('user/create');
+        return $this->blade->render('user/create');
     }
 
     public function store()
