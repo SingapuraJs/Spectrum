@@ -25,9 +25,13 @@ class BaseModel
 
     public function connection()
     {
-        $dsn = 'mysql:host=' . $this->host . ';port=' . $this->port . ';dbname=' . $this->dbname;
-        $this->conn = new PDO($dsn, $this->username, $this->password);
-        $this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        try {
+            $dsn = 'mysql:host=' . $this->host . ';port=' . $this->port . ';dbname=' . $this->dbname;
+            $this->conn = new \PDO($dsn, $this->username, $this->password);
+            $this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        } catch (\PDOException $e) {
+            die('Erro na conexão: ' . $e->getMessage());
+        }
     }
 
     public function select()
@@ -57,9 +61,6 @@ class BaseModel
             return ['success' => false, 'error' => $e->getMessage()];
         }
     }
-
-
-
 
 }
 

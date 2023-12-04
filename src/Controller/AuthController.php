@@ -15,15 +15,14 @@ class AuthController extends BaseController
 
     public function login()
     {
-        echo $this->blade->render('user.login');
+        return $this->blade->render('user/login');
     }
 
     public function auth()
     {
-        $userData = $this->model->verifyExist($_POST['username'] ,$_POST['email']);
+        $userData = $this->model->getExistent($_POST['username']);
         if(password_verify($_POST['password'],$userData['usr_senha'])){
             
-            $id_session = session_id();
             session_write_close();
 
             session_start();

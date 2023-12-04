@@ -4,9 +4,7 @@ namespace Controller;
 
 use Controller\BaseController;
 use Controller\AuthController;
-
 use Model\UserModel;
-
 class UserController extends BaseController
 {
     private $auth;
@@ -19,25 +17,13 @@ class UserController extends BaseController
     }
 
     public function create(){
-        return $this->blade->render('user/create');
+        echo $this->blade->render('user/create');
     }
 
-    public function store()
+    public function store($userData)
     {
-        $userData = [
-            'usr_usuario' => $_POST('username'),
-            'usr_email' => $_POST('email'),
-            'usr_senha' => password_hash($_POST('password'), PASSWORD_DEFAULT),
-            'usr_telefone' => $_POST('tel')
-        ];
-
-        $result = $this->model->create($userData);
-
-        if($result['sucess']){
-            \Flight::redirect('/login');
-        } else {
-            echo 'erro UserController l38';
-        }
+        $result = $this->model->add($userData);
+        return $result;
     }
 }
 

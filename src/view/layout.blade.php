@@ -10,9 +10,30 @@
 </head>
 <body>
 
-    <a href="./login">login</a>
-    <a href="./register">register</a>
+    <header>
+        <div class="p-3 text-white content" style="background-color: #000000;">
 
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <a class="navbar-brand text-white" href="./" >Início</a>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="./info">Info</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                    <div class="ml-auto">
+                        <a href="./login" class="btn btn-outline-light">Login</a>
+                        <a href="./register" class="btn btn-outline-light">Registro</a>
+                    </div>
+
+            </nav>
+        </div>
+    </header>
+  
 
 @yield('body')
 
