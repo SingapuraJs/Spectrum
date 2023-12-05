@@ -1,5 +1,8 @@
 @extends('layout')
 
+@section('title', 'Registro')
+
+
 @section('body')
 
 <div class="my-5 d-flex justify-content-center" style="height: 100vh">

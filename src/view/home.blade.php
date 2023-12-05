@@ -1,5 +1,7 @@
 @extends('layout')
 
+@section('title', 'Spectrum')
+
 @section('body')
 
         <div class="content bg-primary d-flex align-items-center justify-content-center" style="height: 70vh; background-image: linear-gradient(180deg, black, transparent);">

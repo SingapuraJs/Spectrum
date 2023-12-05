@@ -1,5 +1,8 @@
 @extends ('layout')
 
+@section('title', 'Sobre')
+
+
 @section('body')
 
 
