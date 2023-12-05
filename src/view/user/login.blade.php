@@ -2,9 +2,9 @@
 
 @section('body')
 
-<div class="my-5 d-flex align-items-center justify-content-center">
+<div class="my-5 d-flex  justify-content-center " style="height: 100vh">
 
-    <div class="border border-dark rounded p-5">
+    <div class=" border border-dark rounded p-5" style="height: fit-content">
 
         <form action="./login" method="POST">
     
@@ -14,6 +14,7 @@
                 <input type="text" class="form-control" name="username" required placeholder="Digite seu usuário.">
     
             </div>
+            
             
             <div class="form-group">
              

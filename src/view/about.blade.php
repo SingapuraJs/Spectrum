@@ -2,26 +2,21 @@
 
 @section('body')
 
-<button onclick="mostrarAlerta()">Clique aqui</button>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
-     function mostrarAlerta() {
-      Swal.fire({
-        title: 'Olá!',
-        text: 'Isso é um exemplo de SweetAlert.',
-        icon: 'success',
-        confirmButtonText: 'OK'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          console.log('Usuário clicou em OK');
-        }
-      });
-    }
-</script>
+<div style="100vh">
+  <div class="my-5 d-flex justify-content-center my-5" style="height: fit-content">
+    <div class="border border-dark p-5" style="height: fit-content ">
+      
+      <h1 class="font-weight-bold border-bottom" >Nome do projeto</h1>
+     
+    </div>
+  
+  
+  </div>
+</div>
 
-{{ "GABIRU PERFEITO" }}
 @endsection
+
 
 
