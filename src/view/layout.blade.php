@@ -5,33 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>@yield('title')</title>
+    
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.css">
     <!-- Adicione aqui os seus estilos personalizados, se necessário -->
 </head>
 <body>
 
     <header>
-        <div class="p-3 text-white content" style="background-color: #000000;">
+        <div class="p-3 text-white content" style=" background-color: #000;);">
 
-            <nav class="navbar navbar-expand-lg navbar-light ">
-                <a class="navbar-brand text-white" href="./" >Início</a>
-                </button>
+            <nav class="navbar navbar-light navbar-expand">
+
+                <a class="navbar-brand text-white" href="./">Início</a>
+
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="./about">Info</a>
-                        </li>
-                    </ul>
+                            <a class="navbar-brand text-white" href="./about">Info</a>
                 </div>
-
-
-                    <div class="ml-auto">
-                        <a href="./login" class="btn btn-outline-light">Login</a>
-                        <a href="./register" class="btn btn-outline-light">Registro</a>
-                    </div>
-
+                <div class="ml-auto">
+                    <a href="./login" class="btn btn-outline-light">Login</a>
+                    <a href="./register" class="btn btn-outline-light">Registro</a>
+                </div>
             </nav>
+            
         </div>
     </header>
   
@@ -52,7 +48,85 @@
     </div>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script src="node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+<script src="node_modules/sweetalert2/dist/sweetalert2.js"></script>
+
+@if (isset($_SESSION['feedback']))
+
+    @switch($_SESSION['feedback'])
+        @case('exists')
+            
+            <script>
+                Swal.fire({
+                    title: 'Usuário ou E-mail já cadastrados',
+                    text: 'Você foi redirecionado para o Login.',
+                    icon: 'warning'
+                })
+            </script>
+            @php
+                unset($_SESSION['feedback']);
+            @endphp      
+
+        @break
+
+        @case('unexpected')
+        
+            <script>
+                Swal.fire({
+                    title: 'Ops',
+                    text: 'Algo inesperado aconteceu, tente novamente.',
+                    icon: 'question'
+                })
+            </script>
+            @php
+                unset($_SESSION['feedback']);
+            @endphp    
+
+        @break
+
+        @case('created')
+            <script>
+                Swal.fire({
+                    tittle: 'Sucesso!'
+                    text: 'Sua conta foi criada.'
+                    icon: 'sucess'
+                })
+            </script>
+        @break
+        @default
+        
+    @endswitch
+@endif
+
+
+
+{{-- @if(isset($_SESSION['exists']))
+    <script>
+        Swal.fire({
+            title: 'Usuário ou E-mail já cadastrados',
+            text: 'Você foi redirecionado para o Login.',
+            icon: 'warning'
+        })
+    </script>
+    @php
+        unset($_SESSION['exists']);
+    @endphp        
+@endif
+@if (isset($_SESSION['unexpected']))
+    <script>
+        Swal.fire({
+            title: 'Usuário ou E-mail já cadastrados',
+            text: 'Você foi redirecionado para o Login.',
+            icon: 'warning'
+        })
+    </script>
+    @php
+        unset($_SESSION['exists']);
+    @endphp    
+@endif --}}
 
 
 </body>
