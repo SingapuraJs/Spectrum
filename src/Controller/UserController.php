@@ -17,7 +17,8 @@ class UserController extends BaseController
         $this->auth = new AuthController();
     }
 
-    public function create(){
+    public function create()
+    {
         echo $this->blade->render('user/create');
     }
 
@@ -47,8 +48,10 @@ class UserController extends BaseController
                 Flight::redirect('/register');
             }
         };
-
-
+    }
+    public function profile() 
+    {
+        echo $this->blade->render('user/profile');
     }
 }
 
