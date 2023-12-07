@@ -13,9 +13,10 @@
 <body>
 
     <header>
-        <div class="p-3 text-white content" style=" background-color: #000;);">
+        <div class="p-3 text-white content" style="background-color: #000000;">
 
             <nav class="navbar navbar-light navbar-expand">
+
 
                 <a class="navbar-brand text-white" href="./">Início</a>
 
@@ -23,8 +24,22 @@
                             <a class="navbar-brand text-white" href="./about">Info</a>
                 </div>
                 <div class="ml-auto">
+                
+                    @if (isset($_SESSION['authenticated']))
+                    <a href="./logout" class="btn btn-outline-danger">Sair</a>
+
+
+                    <a href="./profile" class="btn btn-outline-light">Perfil</a>
+                        
+                        
+                    @else
                     <a href="./login" class="btn btn-outline-light">Login</a>
+
+
                     <a href="./register" class="btn btn-outline-light">Registro</a>
+                        
+                    @endif
+                
                 </div>
             </nav>
             
@@ -90,8 +105,8 @@
         @case('created')
             <script>
                 Swal.fire({
-                    tittle: 'Sucesso!'
-                    text: 'Sua conta foi criada.'
+                    tittle: 'Sucesso!',
+                    text: 'Sua conta foi criada.',
                     icon: 'sucess'
                 })
             </script>
@@ -103,30 +118,6 @@
 
 
 
-{{-- @if(isset($_SESSION['exists']))
-    <script>
-        Swal.fire({
-            title: 'Usuário ou E-mail já cadastrados',
-            text: 'Você foi redirecionado para o Login.',
-            icon: 'warning'
-        })
-    </script>
-    @php
-        unset($_SESSION['exists']);
-    @endphp        
-@endif
-@if (isset($_SESSION['unexpected']))
-    <script>
-        Swal.fire({
-            title: 'Usuário ou E-mail já cadastrados',
-            text: 'Você foi redirecionado para o Login.',
-            icon: 'warning'
-        })
-    </script>
-    @php
-        unset($_SESSION['exists']);
-    @endphp    
-@endif --}}
 
 
 </body>
