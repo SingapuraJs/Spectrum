@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Controller\BaseController;
+use Flight;
 use Model\UserModel;
 
 class AuthController extends BaseController
@@ -57,6 +58,18 @@ class AuthController extends BaseController
         }
     }
 
+    public function logout()
+    {
+        if(isset($_SESSION['authenticated']) && ($_SESSION['authenticated'])){
+            session_unset();
+            session_destroy();
+            session_commit();
+            Flight::redirect('/home');
+            return ['success' => true];
+        } else {
 
+            return ['success' => false];
+        }
+    }
 }
 ?>

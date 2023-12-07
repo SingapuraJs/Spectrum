@@ -53,6 +53,7 @@ class UserController extends BaseController
     {
         echo $this->blade->render('user/profile');
     }
+    
 }
 
 ?>
