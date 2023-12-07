@@ -22,22 +22,29 @@ class AuthController extends BaseController
     public function auth()
     {
         $userData = $this->model->getExistent($_POST['username']);
-        if(password_verify($_POST['password'],$userData['usr_senha'])){
-            
-            session_write_close();
+        if($userData !== false) {
 
-            session_start();
-
-            $_SESSION['authenticated'] = true;
-            $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-            $_SESSION['browser'] = $_SERVER["HTTP_USER_AGENT"];
-            $_SESSION['user'] = [
-                'id' => $userData['id_usuario'],
-                'name' => $userData['usr_usuario'],
-                'email' => $userData['usr_email']
-            ];
-
-            \Flight::redirect('/home');
+            if(password_verify($_POST['password'],$userData['usr_senha'])){
+                
+                session_write_close();
+    
+                session_start();
+    
+                $_SESSION['authenticated'] = true;
+                $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+                $_SESSION['browser'] = $_SERVER["HTTP_USER_AGENT"];
+                $_SESSION['user'] = [
+                    'id' => $userData['id_usuario'],
+                    'name' => $userData['usr_usuario'],
+                    'email' => $userData['usr_email']
+                ];
+    
+                \Flight::redirect('/home');
+    
+            }
+        } else {
+            $_SESSION['feedback'] = 'incorrect';
+            \Flight::redirect('/login');
 
         }
 

@@ -26,10 +26,8 @@
                 <div class="ml-auto">
                 
                     @if (isset($_SESSION['authenticated']))
-                    <a href="./logout" class="btn btn-outline-danger">Sair</a>
-
-
-                    <a href="./profile" class="btn btn-outline-light">Perfil</a>
+                        <a href="./logout" class="btn btn-outline-danger">Sair</a>
+                        <a href="./profile" class="btn btn-outline-light">Perfil</a>
                         
                         
                     @else
@@ -110,6 +108,19 @@
                     icon: 'sucess'
                 })
             </script>
+        @break
+
+        @case('incorrect')
+            <script>
+                Swal.fire({
+                    tittle: 'Erro.',
+                    text: 'Login ou senha incorretos.',
+                    icon: 'error'
+                })
+            </script>
+            @php
+                unset($_SESSION['feedback']);
+            @endphp    
         @break
         @default
         
