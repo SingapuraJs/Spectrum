@@ -7,20 +7,29 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__ . '/');
 $dotenv->load();
 
+session_start();
 
+
+require __DIR__ . '/routes/routes.php';
+ 
+ Flight::start();
+
+/*
 if(!isset($_SESSION)){
      session_start();
+     session_regenerate_id(true);
 }
+*/
 
 
 // --------------------------------------------------------------------------
 // --------------------------------------------------------------------------
-include 'Views/Layout/head.php'; // cabeçalho da página
+// include 'Views/Layout/head.php'; // cabeçalho da página
 // --------------------------------------------------------------------------
 
 
 /*----------ESTRUTURA PARA MUDAR A PÁGINA----------*/ 
-
+/*
 if(isset($_GET['pagina'])){
     $pagina = $_GET['pagina'];
 }else{
@@ -45,3 +54,6 @@ if ($pagina == 'info') {
 
 include 'Views/Layout/footer.php'; // rodapé
 
+*/
+
+?>
