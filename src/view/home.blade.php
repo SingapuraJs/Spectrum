@@ -9,7 +9,8 @@
             <div class="bg-light content" style="height: 90%; width: 90%; border-radius: 0px 25px 0px 25px">
 
                 <h1 class="text-center pt-4">
-                    <span class="d-none d-md-inline" style="font-size: 84px">Spectrum</span><span class="d-md-none" style="font-size: 50px">Spectrum</span>
+                    <span class="d-none d-md-inline" style="font-size: 84px">Spectrum</span>
+                    <span class="d-md-none" style="font-size: 50px">Spectrum</span>
                 </h1>
 
 

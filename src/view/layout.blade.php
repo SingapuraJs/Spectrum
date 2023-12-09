@@ -44,10 +44,8 @@
         </div>
     </header>
   
-    <main class="container mt-2">
         <!-- Conteúdo dinâmico -->
         @yield('body')
-    </main>
 
 <footer class="d-flex align-items-center justify-content-center" style="height: 35vh; background-color: #000000bf">
     <div class="container">
@@ -108,6 +106,9 @@
                     icon: 'sucess'
                 })
             </script>
+              @php
+              unset($_SESSION['feedback']);
+          @endphp    
         @break
 
         @case('incorrect')
