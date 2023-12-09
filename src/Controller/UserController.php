@@ -53,7 +53,10 @@ class UserController extends BaseController
     {
         echo $this->blade->render('user/profile');
     }
-    
+    public function teste() 
+    {
+        echo $this->blade->render('teste');
+    }
 }
 
 ?>

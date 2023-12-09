@@ -35,5 +35,9 @@ Flight::route('GET /logout', function () {
 });
 
 
+Flight::route('POST /teste', function () {
+    $controller = new UserController();
+    $result = $controller->teste();
+});
 
 

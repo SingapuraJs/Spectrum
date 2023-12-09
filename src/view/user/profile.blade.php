@@ -7,7 +7,7 @@
     <div class="border border-dark bg-light m-1">
 
         <div class="d-flex justify-content-center pt-3" style="height: fit-content">
-            <img src="./archives/example.svg" class="shadow p-1"
+            <img src="./archives/example.svg" class="shadow "
                 style="img-fluid height: 250px; width:250px; background-color: white; border-radius: 50%">
             {{-- foto de perfil  --}}
         </div>
@@ -36,6 +36,7 @@
 
 
 
+        
 
         <div class="w-75 mx-auto border border-dark mt-2 mb-5 containers">
             <div class="row m-1">
@@ -63,3 +64,6 @@
 
     </div>
 @endsection
+
+
+
