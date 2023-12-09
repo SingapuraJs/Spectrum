@@ -56,6 +56,7 @@ class UserController extends BaseController
     public function teste() 
     {
         echo $this->blade->render('teste');
+    
     }
 }
 
