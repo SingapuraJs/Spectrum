@@ -24,9 +24,14 @@ Flight::route('POST /login', function () {
     echo $controller->auth();
 });
 
-Flight::route('GET /profile', function () {
+// Flight::route('GET /profile', function () {
+//     $controller = new UserController();
+//     echo $controller->profile();
+// });
+
+Flight::route('GET /profile/@username', function ($username) {
     $controller = new UserController();
-    echo $controller->profile();
+    echo $controller->profile($username);
 });
 
 Flight::route('GET /logout', function () {
@@ -35,9 +40,5 @@ Flight::route('GET /logout', function () {
 });
 
 
-Flight::route('POST /teste', function () {
-    $controller = new UserController();
-    $result = $controller->teste();
-});
 
 

@@ -6,8 +6,8 @@
 
     <title>@yield('title')</title>
     
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.css">
+    <link rel="stylesheet" href="/WebSiteOliver/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/WebSiteOliver/node_modules/sweetalert2/dist/sweetalert2.css">
     <!-- Adicione aqui os seus estilos personalizados, se necessário -->
 </head>
 <body>
@@ -18,23 +18,23 @@
             <nav class="navbar navbar-light navbar-expand">
 
 
-                <a class="navbar-brand text-white" href="./">Início</a>
+                <a class="navbar-brand text-white" href="/WebSiteOliver/home">Início</a>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
-                            <a class="navbar-brand text-white" href="./about">Info</a>
+                            <a class="navbar-brand text-white" href="/WebSiteOliver/about">Info</a>
                 </div>
                 <div class="ml-auto">
                 
                     @if (isset($_SESSION['authenticated']))
-                        <a href="./logout" class="btn btn-outline-danger">Sair</a>
-                        <a href="./profile" class="btn btn-outline-light">Perfil</a>
+                        <a href="/WebSiteOliver/logout" class="btn btn-outline-danger">Sair</a>
+                        <a href="/WebSiteOliver/profile/{{ $_SESSION['user']['name'] }}" class="btn btn-outline-light">Perfil</a>
                         
                         
                     @else
-                    <a href="./login" class="btn btn-outline-light">Login</a>
+                    <a href="/WebSiteOliver/login" class="btn btn-outline-light">Login</a>
 
 
-                    <a href="./register" class="btn btn-outline-light">Registro</a>
+                    <a href="/WebSiteOliver/register" class="btn btn-outline-light">Registro</a>
                         
                     @endif
                 
@@ -49,21 +49,26 @@
 
 <footer class="d-flex align-items-center justify-content-center" style="height: 35vh; background-color: #000000bf">
     <div class="container">
-        <a href="">
-            github;
-        </a>
-        <a href="">
-            IFPE Campus Igarassu;
-        </a>
-        <p>Rodovia BR-101 Norte, Km 29, Engenho Ubu, Igarassu Pernambuco.</p>
+        <div class="row row-cols-3">
+            <a class="text-white col-12" href="">
+                github
+            </a>
+            
+            <a class="text-white col-12" href="">
+                IFPE Campus Igarassu
+            </a>
+            <p class="text-white col-12">Rodovia BR-101 Norte, Km 29, Engenho Ubu, Igarassu Pernambuco.</p>
+       
+
+        </div>
     </div>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-<script src="node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-<script src="node_modules/sweetalert2/dist/sweetalert2.js"></script>
+<script src="/WebSiteOliver/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script src="/WebSiteOliver/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+<script src="/WebSiteOliver/node_modules/sweetalert2/dist/sweetalert2.js"></script>
 
 @if (isset($_SESSION['feedback']))
 

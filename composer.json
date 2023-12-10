@@ -8,6 +8,7 @@
     "require": {
         "vlucas/phpdotenv": "^5.6",
         "jenssegers/blade": "^1.4",
-        "mikecao/flight": "^2.0"
+        "mikecao/flight": "^2.0",
+        "codeguy/upload": "^1.3"
     }
 }

@@ -24,7 +24,7 @@ class AuthController extends BaseController
         $userData = $this->model->getExistent($_POST['username']);
         if($userData !== false) {
 
-            if(password_verify($_POST['password'],$userData['usr_senha'])){
+            if(password_verify($_POST['password'], $userData['usr_senha'])){
                 
                 session_write_close();
     

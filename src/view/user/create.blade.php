@@ -9,33 +9,41 @@
 
     <div class="border border-dark rounded p-5" style="height: fit-content">
 
-        <form action="./register" method="POST">
+        <form action="./register" method="POST" enctype="multipart/form-data">
+
+
+            <div class="w-100 justify-content-center align-items-center">
+                <input type="file" id="imgToUpload" name="profile_pic" accept="image/png,    image/jpeg, image/gif, image/jpg" style="display: none;">
+                <label for="imgToUpload">
+                <img id="previewImagem" src="/WebSiteOliver/archives/person.svg" class="w-25 h-25 mb-2 p-2 border rounded-circle border-dark" style="min-width: 100px; min-height: 100px; max-width: 100px; max-height: 100px;">
+                </label>
+            </div>
     
             <div class="form-group">
     
                 <label>Usuário</label>
-                <input type="text" class="form-control" name="username" required placeholder="Digite seu usuário.">
+                <input type="text" class="form-control" name="username" required placeholder="Digite seu usuário." onkeypress="return event.charCode != 32">
     
             </div>
     
             <div class="form-group">
                 
                 <label>E-mail</label>
-                <input type="email" class="form-control" name="email" required placeholder="Digite seu E-mail.">
+                <input type="email" class="form-control" name="email" required placeholder="Digite seu E-mail." onkeypress="return event.charCode != 32">
     
             </div>
             
             <div class="form-group">
              
                 <label>Senha</label>
-                <input type="password" class="form-control" name="password" required placeholder=" Digite sua senha.">
+                <input type="password" class="form-control" name="password" required placeholder=" Digite sua senha." onkeypress="return event.charCode != 32">
     
             </div>
     
             <div class="form-group">
     
                 <label for="phoneNumber">Telefone</label>
-                <input type="tel" class="form-control" name="tel" placeholder="(00) 91234-4567">
+                <input type="tel" class="form-control" name="tel" placeholder="(opcional.)" maxlength="11" onkeypress="return event.charCode != 32">
       
             </div>
     
@@ -48,6 +56,39 @@
     </div>
 
 </div>
+
+<script>
+    // Adiciona um evento de alteração ao campo de upload de arquivo
+    document.getElementById('imgToUpload').addEventListener('change', function(event) {
+        // Obtém o elemento de imagem de preview
+        var previewImagem = document.getElementById('previewImagem');
+
+        // Obtém o arquivo selecionado
+        var arquivo = event.target.files[0];
+
+        // Verifica se um arquivo foi selecionado
+        if (arquivo) {
+
+            if (!/^image\//.test(arquivo.type)) {
+                // Alerta o usuário sobre o tipo de arquivo não permitido
+                Swal.fire({
+                    title: 'Erro',
+                    text: 'Você selecionou um tipo inválido de imagem.',
+                    icon: 'warning'
+                })
+                // Limpa o campo de upload de arquivo
+                event.target.value = '';
+                return;
+            }
+
+            var leitor = new FileReader();
+            leitor.onload = function(e) {
+                previewImagem.src = e.target.result;
+            };
+            leitor.readAsDataURL(arquivo);
+        }
+    });
+</script>
 
 
 @endsection
