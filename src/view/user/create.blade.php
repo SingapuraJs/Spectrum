@@ -36,7 +36,7 @@
             <div class="form-group">
              
                 <label>Senha</label>
-                <input type="password" class="form-control" name="password" required placeholder=" Digite sua senha." onkeypress="return event.charCode != 32">
+                <input type="password" class="form-control" name="password" pattern=".{6,}" required title="Sua senha deve ter no minimo 6 caracteres." placeholder=" Digite sua senha." onkeypress="return event.charCode != 32">
     
             </div>
     

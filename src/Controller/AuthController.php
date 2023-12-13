@@ -21,6 +21,12 @@ class AuthController extends BaseController
 
     public function auth()
     {
+        if(strlen($_POST['password']) < 6) {
+            $_SESSION['feedback'] = 'unexpected';
+            Flight::redirect('/login');
+            exit;
+        }
+
         $userData = $this->model->getExistent($_POST['username']);
         if($userData !== false) {
 
@@ -77,6 +83,15 @@ class AuthController extends BaseController
 
             return ['success' => false];
         }
+    }
+
+    public function redirect(){
+        
+        session_regenerate_id();
+        $_SESSION = array();
+        $_SESSION['feedback'] = 'expired';
+        Flight::redirect('/home');
+
     }
 }
 ?>

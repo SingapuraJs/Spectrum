@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>@yield('title')</title>
-    
+    <script src="/WebSiteOliver/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+    <script src="/WebSiteOliver/node_modules/sweetalert2/dist/sweetalert2.js"></script>
     <link rel="stylesheet" href="/WebSiteOliver/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/WebSiteOliver/node_modules/sweetalert2/dist/sweetalert2.css">
     <!-- Adicione aqui os seus estilos personalizados, se necessário -->
 </head>
 <body>
+
 
     <header>
         <div class="p-3 text-white content" style="background-color: #000000;">
@@ -43,6 +45,7 @@
             
         </div>
     </header>
+    
   
         <!-- Conteúdo dinâmico -->
         @yield('body')
@@ -67,8 +70,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="/WebSiteOliver/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-<script src="/WebSiteOliver/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-<script src="/WebSiteOliver/node_modules/sweetalert2/dist/sweetalert2.js"></script>
+
 
 @if (isset($_SESSION['feedback']))
 
@@ -111,9 +113,9 @@
                     icon: 'sucess'
                 })
             </script>
-              @php
+            @php
               unset($_SESSION['feedback']);
-          @endphp    
+            @endphp    
         @break
 
         @case('incorrect')
@@ -128,14 +130,23 @@
                 unset($_SESSION['feedback']);
             @endphp    
         @break
+
+        @case('expired')
+            <script>
+                Swal.fire({
+                    tittle: 'Erro.',
+                    text: 'Sessão expirada.',
+                    icon: 'error'
+                })
+            </script>
+            @php
+                unset($_SESSION['feedback']);
+            @endphp    
+
         @default
         
     @endswitch
 @endif
-
-
-
-
 
 </body>
 </html> 

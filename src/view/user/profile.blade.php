@@ -8,7 +8,10 @@
 
         $foto = $userData['foto'] === null ? 'person.svg' : $userData['foto'];
         $bio = $userData['bio'] === null ? 'nada ainda -_-' : $userData['bio'];
-        var_dump($userData);
+        echo "<pre>";
+        var_dump($_SESSION);
+        echo "</pre>";
+
     @endphp
 
     <div class="border border-dark bg-light m-1">
@@ -61,7 +64,22 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post"></form>
+
+                    
+                        <form action="/WebSiteOliver/profile/{{ $userData['nome'] }}/post" method="POST">
+                            <div class="form-group">
+                              <label for="image">img test</label>
+                              <input type="text" class="form-control" id="img" name="img">
+                            </div>
+
+                            <div class="form-group">
+                              <label for="desc">desc</label>
+                              <input type="text" class="form-control" id="desc" name="desc">
+                            </div>
+                            <br>
+                            
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>
 
 
 

@@ -1,8 +1,8 @@
 <?php
 
 use Controller\AuthController;
+use Controller\PostController;
 use Controller\UserController;
-use Illuminate\Support\Facades\Auth;
 
 Flight::route('GET /register', function () {
     $controller = new UserController();
@@ -21,24 +21,33 @@ Flight::route('GET /login', function () {
 
 Flight::route('POST /login', function () {
     $controller = new AuthController();
+    if($controller->verifyAuthenticated() != true){
+        $controller->logout();
+    }
+
     echo $controller->auth();
 });
 
-// Flight::route('GET /profile', function () {
-//     $controller = new UserController();
-//     echo $controller->profile();
-// });
-
 Flight::route('GET /profile/@username', function ($username) {
     $controller = new UserController();
+    $auth = new AuthController();
+    if($auth->verifyAuthenticated() != true){
+        $auth->redirect();
+    }
     echo $controller->profile($username);
 });
 
 Flight::route('GET /logout', function () {
     $controller = new AuthController();
-    $result = $controller->logout();
+    $controller->logout();
 });
 
+Flight::route('POST /post', function () {
+    $controller = new PostController();
+    $controller->doPost();
+}
+
+);
 
 
 

@@ -4,6 +4,10 @@
 
 @section('body')
 
+    @php
+        print_r($_SESSION);
+    @endphp
+
         <div class="content bg-primary d-flex align-items-center justify-content-center" style="height: 70vh; background-image: linear-gradient(180deg, black, transparent);">
             <!-- aq vem o card de boas vindas-->
             <div class="bg-light content" style="height: 90%; width: 90%; border-radius: 0px 25px 0px 25px">
