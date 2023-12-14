@@ -23,7 +23,7 @@
                 <a class="navbar-brand text-white" href="/WebSiteOliver/home">Início</a>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
-                            <a class="navbar-brand text-white" href="/WebSiteOliver/about">Info</a>
+                            <a class="navbar-brand text-white" href="/WebSiteOliver/about">Sobre</a>
                 </div>
                 <div class="ml-auto">
                 
@@ -50,16 +50,18 @@
         <!-- Conteúdo dinâmico -->
         @yield('body')
 
-<footer class="d-flex align-items-center justify-content-center" style="height: 35vh; background-color: #000000bf">
+<footer class="d-flex align-items-center justify-content-center" style="height: 35vh; background-color:#000000">
     <div class="container">
         <div class="row row-cols-3">
             <a class="text-white col-12" href="">
-                github
+                GitHub
             </a>
             
             <a class="text-white col-12" href="">
-                IFPE Campus Igarassu
+                Instagram
             </a>
+            <br>
+            <br>
             <p class="text-white col-12">Rodovia BR-101 Norte, Km 29, Engenho Ubu, Igarassu Pernambuco.</p>
        
 

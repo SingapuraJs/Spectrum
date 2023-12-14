@@ -42,7 +42,8 @@ class AuthController extends BaseController
                 $_SESSION['user'] = [
                     'id' => $userData['id_usuario'],
                     'name' => $userData['usr_usuario'],
-                    'email' => $userData['usr_email']
+                    'email' => $userData['usr_email'],
+                    'pic' => $userData['usr_foto']
                 ];
     
                 \Flight::redirect('/home');
