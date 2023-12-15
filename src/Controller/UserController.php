@@ -90,8 +90,8 @@ class UserController extends BaseController
         $userAllPosts = $controller->getPosts($userAllData['id_usuario']);
         if ($userAllData != null) {
             $userData = [
-            'id' => $userAllData['id_usuario']
-            ,'foto' => $userAllData['usr_foto'],
+            'id' => $userAllData['id_usuario'],
+            'foto' => $userAllData['usr_foto'],
             'nome' => $userAllData['usr_usuario'],
             'bio' => $userAllData['usr_bio'],
             'posts' => $userAllPosts

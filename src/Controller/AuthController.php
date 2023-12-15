@@ -93,8 +93,6 @@ class AuthController extends BaseController
         
         session_regenerate_id();
         $_SESSION = array();
-        $_SESSION['feedback'] = 'expired';
-        Flight::redirect('/home');
         
     }
 }

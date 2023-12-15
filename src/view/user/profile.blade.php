@@ -7,9 +7,11 @@
     @php
 
         $foto = $userData['foto'] === null ? 'person.svg' : $userData['foto'];
+        $nome = $userData['nome'];
         $bio = $userData['bio'] === null ? 'nada ainda -_-' : $userData['bio'];
         $uid = $userData['id'];
         $posts = $userData['posts'];
+        print_r($posts);
         echo "<pre>";
          print_r($userData);
          echo "</pre>";
@@ -44,15 +46,15 @@
         </div>
 
 {{-- --------------------------------------------------POSTAGENS-------------------------------------------------- --}}
-
-<div class=" mx-auto " style="width: 90%; height: fit-content;">
+@if (isset($_SESSION['authenticated']) && $uid === $_SESSION['user']['id'])
     
-    
-    {{-- <button type="button" class="text-center btn btn-dark text-white my-1" data-toggle="modal" data-target="#newPost">Novo post</button> --}}
-    <button type="button" class="text-center btn btn-dark text-white my-1" data-bs-toggle="modal" data-bs-target="#newPost">
-        Criar novo post
-      </button>
-</div>
+    <div class=" mx-auto " style="width: 90%; height: fit-content;">
+        
+        <button type="button" class="text-center btn btn-dark text-white my-1" data-bs-toggle="modal" data-bs-target="#newPost">
+            Criar novo post
+        </button>
+    </div>
+@endif
 
 
   
@@ -67,10 +69,10 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="/WebSiteOliver/profile/{{ $_SESSION['user']['name'] }}/post" method="POST" enctype="multipart/form-data">
-                        <label>Adicione uma foto</label>
+                    <form action="/WebSiteOliver/profile/{{ $nome }}/post" method="POST" enctype="multipart/form-data">
+                        <label>Adicione uma imagem</label>
                         <div class="w-100 d-flex justify-content-center align-items-center py-3" style="min-height: 200px; max-height: fit-content">
-                            <input type="file" id="newPostImage" name="img" accept="image/png, image/jpeg, image/gif, image/jpg" style="display: none;">
+                            <input type="file" id="newPostImage" required name="img" accept="image/png, image/jpeg, image/gif, image/jpg" style="display: none;">
                             <label for="newPostImage">
                                 <img id="previewPost" src="/WebSiteOliver/archives/plus-lg.svg" class="p-1 border-dark img-fluid w-100 h-100 object-fit-contain mx-auto" style="min-height: 200px;">
                             </label>
@@ -101,18 +103,27 @@
   
 
     <div class="border border border rounded border-dark border-dark">
-                <div class="row m-1">
+                <div class="row m-1" style="min-height:300px; ">
                     
 
-
-            @foreach ($posts as $post)
-            <div class="col-sm-12 col-md-4" style="height: 50vh;">
-                <img src="/WebSiteOliver/archives/posts/{{ $post['imagem'] }}" class="img-fluid rounded p-1" alt="Imagem 1" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-        @endforeach
-
+            @if (empty($posts))
+                
+                @if (isset($_SESSION['authenticated']) && $uid === $_SESSION['user']['id'])
+                    <h3 class="text-center">Você ainda não postou nada :(</h3>
+                @else
                     
-                    
+                    <h3 class="text-center">Este usuário não tem postagens :(</h3>
+
+                @endif
+
+            @else
+                
+                @foreach ($posts as $post)
+                <div class="col-sm-12 col-md-4" style="height: 50vh;">
+                    <img src="/WebSiteOliver/archives/posts/{{ $post['imagem'] }}" class="img-fluid rounded p-1" alt="Imagem 1" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                @endforeach
+            @endif
 
 
                 </div>
