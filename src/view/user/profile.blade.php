@@ -6,15 +6,15 @@
 
     @php
 
-        $foto = $userData['foto'] === null ? 'person.svg' : $userData['foto'];
+    $foto = $userData['foto'] === null ? 'person.svg' : $userData['foto'];
         $nome = $userData['nome'];
         $bio = $userData['bio'] === null ? 'nada ainda -_-' : $userData['bio'];
         $uid = $userData['id'];
         $posts = $userData['posts'];
-        print_r($posts);
-        echo "<pre>";
-         print_r($userData);
-         echo "</pre>";
+//        print_r($posts);
+//        echo "<pre>";
+//         print_r($userData);
+//         echo "</pre>";
 
     
     @endphp

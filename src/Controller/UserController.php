@@ -53,7 +53,6 @@ class UserController extends BaseController
             'usr_usuario' => $_POST['username'],
             'usr_email' => $_POST['email'],
             'usr_senha' => password_hash($_POST['password'], PASSWORD_DEFAULT),
-            'usr_telefone' => $_POST['tel'],
             'usr_foto' => $pic->getNameWithExtension()
         ];
 
@@ -88,6 +87,7 @@ class UserController extends BaseController
         $userAllData = $this->model->getExistent($username);
         $controller = new PostController;
         $userAllPosts = $controller->getPosts($userAllData['id_usuario']);
+        
         if ($userAllData != null) {
             $userData = [
             'id' => $userAllData['id_usuario'],
