@@ -5,7 +5,7 @@
 @section('body')
 
     @php
-        // print_r($_SESSION);
+         print_r($_SESSION);
     @endphp
 
         <div class="content bg-primary d-flex align-items-center justify-content-center" style="height: fit-content; background-image: linear-gradient(180deg, black, transparent);">
@@ -21,12 +21,12 @@
                         <div class="col-md-5 ">
                             <img src="/WebSiteOliver/archives/users/{{$_SESSION['user']['pic']}}" class="img-fluid border rounded-circle w-50" alt="Sua Imagem">
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-md-7" style="width: fit-content">
                             <h1 class="m-2 mx-auto">
                                 <span class="d-none d-md-inline " style="font-size: 84px">Olá {{ucfirst($_SESSION['user']['name'] . '!')}}</span>
                                 <span class="d-md-none" style="font-size: 36px">Olá {{ucfirst($_SESSION['user']['name'] . '!')}}</span>
                             </h1>
-                            <a class=" btn btn-dark text-white mt-5" href="/WebSiteOliver/profile/{{ $_SESSION['user']['name'] }}">Acessar perfil</a>
+                            <a class=" btn btn-dark text-white mt-5 float-end" href="/WebSiteOliver/profile/{{ $_SESSION['user']['name'] }}">Acessar perfil</a>
 
                         </div>
                         

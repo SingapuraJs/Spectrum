@@ -42,7 +42,6 @@ class AuthController extends BaseController
                 $_SESSION['user'] = [
                     'id' => $userData['id_usuario'],
                     'name' => $userData['usr_usuario'],
-                    'email' => $userData['usr_email'],
                     'pic' => $userData['usr_foto']
                 ];
     
@@ -65,10 +64,9 @@ class AuthController extends BaseController
 
     public function verifyAuthenticated()
     {
-        if(array_key_exists('authenticated', $_SESSION) 
-        && array_key_exists('ip', $_SESSION) 
-        && array_key_exists('browser',$_SESSION) 
-        && array_key_exists('user', $_SESSION)) {
+        $keys = ['authenticated', 'ip', 'browser', 'user'];
+        
+        if(empty(array_diff($keys, array_keys($_SESSION)))) {
             return ( $_SESSION['authenticated'] ) 
             && ( $_SESSION['ip'] === $_SERVER['REMOTE_ADDR'] ) 
             && ( $_SESSION['browser'] === $_SERVER["HTTP_USER_AGENT"] );

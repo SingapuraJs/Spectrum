@@ -39,10 +39,64 @@
             </div>
         </div>
 
+{{-- --------------------------------------------------POSTAGENS-------------------------------------------------- --}}
+
+<div class=" mx-auto " style="width: 90%; height: fit-content;">
+    
+    
+    {{-- <button type="button" class="text-center btn btn-dark text-white my-1" data-toggle="modal" data-target="#newPost">Novo post</button> --}}
+    <button type="button" class="text-center btn btn-dark text-white my-1" data-bs-toggle="modal" data-bs-target="#newPost">
+        Criar novo post
+      </button>
+</div>
 
 
-        <div class="mx-auto border border rounded border-dark my-2" style="width: 90%">
-            <div class="border-0 border-dark m-0">
+  
+  <!-- Modal -->
+    <div class="modal fade" id="newPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Criar novo post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form action="/WebSiteOliver/profile/{{ $_SESSION['user']['name'] }}/post" method="POST" enctype="multipart/form-data">
+                        <label>Adicione uma foto</label>
+                        <div class="w-100 d-flex justify-content-center align-items-center py-3" style="min-height: 200px; max-height: fit-content">
+                            <input type="file" id="newPostImage" name="img" accept="image/png, image/jpeg, image/gif, image/jpg" style="display: none;">
+                            <label for="newPostImage">
+                                <img id="previewPost" src="/WebSiteOliver/archives/plus-lg.svg" class="p-1 border-dark img-fluid w-100 h-100 object-fit-contain mx-auto" style="min-height: 200px;">
+                            </label>
+                        </div>
+    
+
+                        <div class="mb-3">
+                            <label for="campoTexto" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="campoTexto" name="desc" placeholder="Insira a descrição aqui" rows="5" style="resize: none;"></textarea>
+                        </div>
+                        
+            
+                        <button type="submit" class="btn btn-dark">Enviar</button>
+                    
+                    </form>
+
+                </div>
+            
+            </div>
+        
+        </div>
+    
+    </div>
+  
+
+
+<div class="mx-auto " style="width: 90%">
+  
+
+    <div class="border border border rounded border-dark border-dark">
                 <div class="row m-1">
                     
 
@@ -93,6 +147,36 @@
     
     </div>
 
+    <script>
+         document.getElementById('newPostImage').addEventListener('change', function(event) {
+        // Obtém o elemento de imagem de preview
+        var previewPost = document.getElementById('previewPost');
 
+        // Obtém o arquivo selecionado
+        var arquivo = event.target.files[0];
+
+        // Verifica se um arquivo foi selecionado
+        if (arquivo) {
+
+            if (!/^image\//.test(arquivo.type)) {
+                // Alerta o usuário sobre o tipo de arquivo não permitido
+                Swal.fire({
+                    title: 'Erro',
+                    text: 'Você selecionou um tipo inválido de imagem.',
+                    icon: 'warning'
+                })
+                // Limpa o campo de upload de arquivo
+                event.target.value = '';
+                return;
+            }
+
+            var leitor = new FileReader();
+            leitor.onload = function(e) {
+                previewPost.src = e.target.result;
+            };
+            leitor.readAsDataURL(arquivo);
+        }
+    });
+    </script>
 
 @endsection

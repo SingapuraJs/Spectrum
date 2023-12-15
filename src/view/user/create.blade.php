@@ -12,39 +12,42 @@
         <form action="./register" method="POST" enctype="multipart/form-data">
 
 
-            <div class="w-100 justify-content-center align-items-center">
-                <input type="file" id="imgToUpload" name="profile_pic" accept="image/png,    image/jpeg, image/gif, image/jpg" style="display: none;">
-                <label for="imgToUpload">
-                <img id="previewImagem" src="/WebSiteOliver/archives/person.svg" class="w-25 h-25 mb-2 p-2 border rounded-circle border-dark" style="min-width: 100px; min-height: 100px; max-width: 100px; max-height: 100px;">
-                </label>
+
+            <div class="row  mb-4 d-flex align-items-center justify-content-center">
+                <div class="col-5 ">
+                    <div class="w-100 justify-content-center align-items-center">
+                        <input type="file" id="imgToUpload" name="profile_pic" accept="image/png, image/jpeg, image/gif, image/jpg" style="display: none;">
+                        <label for="imgToUpload">
+                        <img id="previewImagem" src="/WebSiteOliver/archives/users/person.svg" class="p-1 border rounded-circle border-dark" style="min-width: 80px; min-height: 80px; max-width: 80px; max-height: 80px;">
+                        </label>
+                    </div>
+                </div>
+                <div class="col-7 ">
+                    <small class="text-danger text-center" style="font-style: italic">foto de perfil</small>
+                </div>
             </div>
+
+            
     
             <div class="form-group">
     
                 <label>Usuário</label>
-                <input type="text" class="form-control" name="username" required placeholder="Digite seu usuário." onkeypress="return event.charCode != 32">
+                <input type="text" class="form-control" name="username" required onkeypress="return event.charCode != 32">
     
             </div>
     
             <div class="form-group">
                 
                 <label>E-mail</label>
-                <input type="email" class="form-control" name="email" required placeholder="Digite seu E-mail." onkeypress="return event.charCode != 32">
+                <input type="email" class="form-control" name="email" required onkeypress="return event.charCode != 32">
     
             </div>
             
             <div class="form-group">
              
                 <label>Senha</label>
-                <input type="password" class="form-control" name="password" pattern=".{6,}" required title="Sua senha deve ter no minimo 6 caracteres." placeholder=" Digite sua senha." onkeypress="return event.charCode != 32">
+                <input type="password" class="form-control" name="password" pattern=".{6,}" required title="Sua senha deve ter no minimo 6 caracteres." senha." onkeypress="return event.charCode != 32">
     
-            </div>
-    
-            <div class="form-group">
-    
-                <label for="phoneNumber">Telefone</label>
-                <input type="tel" class="form-control" name="tel" placeholder="(opcional.)" maxlength="11" onkeypress="return event.charCode != 32">
-      
             </div>
     
             <div class="float-end">
@@ -88,6 +91,7 @@
             leitor.readAsDataURL(arquivo);
         }
     });
+
 </script>
 
 

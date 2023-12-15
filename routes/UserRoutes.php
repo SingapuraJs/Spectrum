@@ -28,6 +28,11 @@ Flight::route('POST /login', function () {
     echo $controller->auth();
 });
 
+Flight::route('GET /profile', function () {
+    Flight::redirect('/profile/' . $_SESSION['user']['name']);
+});
+
+
 Flight::route('GET /profile/@username', function ($username) {
     $controller = new UserController();
     $auth = new AuthController();
@@ -42,8 +47,12 @@ Flight::route('GET /logout', function () {
     $controller->logout();
 });
 
-Flight::route('POST /post', function () {
+Flight::route('POST /profile/@username/post', function () {
     $controller = new PostController();
+    $auth = new AuthController();
+    if($auth->verifyAuthenticated() != true){
+        $auth->redirect();
+    }
     $controller->doPost();
 }
 

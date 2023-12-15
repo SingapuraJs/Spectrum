@@ -15,12 +15,11 @@ class UserModel extends BaseModel
     public function add($userData)
     {
         try {
-            $sql = 'INSERT INTO ' . $this->table . '(usr_usuario, usr_email, usr_senha, usr_telefone, usr_foto) VALUES (:username, :email, :password, :tel, :pic)';
+            $sql = 'INSERT INTO ' . $this->table . '(usr_usuario, usr_email, usr_senha, usr_foto) VALUES (:username, :email, :password, :pic)';
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':username', $userData['usr_usuario']);
             $stmt->bindParam(':email', $userData['usr_email']);
             $stmt->bindParam(':password', $userData['usr_senha']);
-            $stmt->bindParam(':tel', $userData['usr_telefone']);
             $stmt->bindParam(':pic', $userData['usr_foto']);
             $stmt->execute();
             return ['success' => true];
