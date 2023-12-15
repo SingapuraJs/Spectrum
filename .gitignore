@@ -2,5 +2,5 @@
 /vendor/
 /node_modules/
 cache/
-/archives/users/
-/archives/posts/
+/archives/users/*
+/archives/posts/*

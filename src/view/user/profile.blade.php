@@ -8,11 +8,15 @@
 
         $foto = $userData['foto'] === null ? 'person.svg' : $userData['foto'];
         $bio = $userData['bio'] === null ? 'nada ainda -_-' : $userData['bio'];
-        // echo "<pre>";
-        // var_dump($_SESSION);
-        // echo "</pre>";
+        $uid = $userData['id'];
+        $posts = $userData['posts'];
+        echo "<pre>";
+         print_r($userData);
+         echo "</pre>";
 
+    
     @endphp
+
 
     <div class="bg-light m-1">
 
@@ -100,27 +104,14 @@
                 <div class="row m-1">
                     
 
-            {{-- AQUI DENTRO VIRÁ UM LOOP, QUE RENDERIZARÁ TODAS OS POSTS DO USUARIO (SE ELE TIVER POSTS) --}}
 
-                    <div class="col-sm-12 col-md-4 " style="height: 50vh;">
-                        <img src="/WebSiteOliver/archives/users/{{ $foto }}" class="img-fluid rounded p-1" alt="Imagem 1" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
+            @foreach ($posts as $post)
+            <div class="col-sm-12 col-md-4" style="height: 50vh;">
+                <img src="/WebSiteOliver/archives/posts/{{ $post['imagem'] }}" class="img-fluid rounded p-1" alt="Imagem 1" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        @endforeach
+
                     
-                    <div class="col-sm-12 col-md-4 " style="height: 50vh;">
-                        <img src="/WebSiteOliver/archives/users/{{ $foto }}" class="img-fluid rounded p-1" alt="Imagem 1" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    
-                    <div class="col-sm-12 col-md-4 " style="height: 50vh;">
-                        <img src="/WebSiteOliver/archives/users/{{ $foto }}" class="img-fluid rounded p-1" alt="Imagem 1" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    
-                    <div class="col-sm-12 col-md-4 " style="height: 50vh;">
-                        <img src="/WebSiteOliver/archives/users/{{ $foto }}" class="img-fluid rounded p-1" alt="Imagem 1" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    
-                    <div class="col-sm-12 col-md-4 " style="height: 50vh;">
-                        <img src="/WebSiteOliver/archives/users/{{ $foto }}" class="img-fluid rounded p-1" alt="Imagem 1" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
                     
 
 

@@ -38,7 +38,9 @@ Flight::route('GET /profile/@username', function ($username) {
     $auth = new AuthController();
     if($auth->verifyAuthenticated() != true){
         $auth->redirect();
+        exit;
     }
+    $posts = new PostController;
     echo $controller->profile($username);
 });
 

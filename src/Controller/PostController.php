@@ -23,13 +23,9 @@ class PostController extends BaseController
         $post->setName($new_postName);
 
         $post->addValidations(array(
-            // Ensure file is of type "image/png"
+
             new \Upload\Validation\Mimetype(array('image/png', 'image/jpg', 'image/jpeg', 'image/gif')),
-        
-            //You can also add multi mimetype validation
-            //new \Upload\Validation\Mimetype(array('image/png', 'image/gif'))
-        
-            // Ensure file is no larger than 5M (use "B", "K", M", or "G")
+
             new \Upload\Validation\Size('16M')
         ));
 
@@ -57,7 +53,16 @@ class PostController extends BaseController
             $_SESSION['feedback'] = 'error';
             Flight::redirect('/profile');
         }
-        
+    }
+
+    public function getPosts($id)
+    {
+        return $this->model->selectAllPosts($id);
+    }
+
+    public function bioUpdate()
+    {
+        return $this->model->updateBio();
     }
 }
 

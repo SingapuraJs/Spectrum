@@ -86,19 +86,20 @@ class UserController extends BaseController
     public function profile($username) 
     {
         $userAllData = $this->model->getExistent($username);
+        $controller = new PostController;
+        $userAllPosts = $controller->getPosts($userAllData['id_usuario']);
         if ($userAllData != null) {
-            $userData = ['foto' => $userAllData['usr_foto'],
+            $userData = [
+            'id' => $userAllData['id_usuario']
+            ,'foto' => $userAllData['usr_foto'],
             'nome' => $userAllData['usr_usuario'],
             'bio' => $userAllData['usr_bio'],
+            'posts' => $userAllPosts
             ];
             echo $this->blade->render('user/profile', ['userData' => $userData]);
-        }
+        };
     }
-    public function teste() 
-    {
-        echo $this->blade->render('teste');
-    
-    }
+
 }
 
 ?>

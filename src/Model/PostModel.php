@@ -27,4 +27,18 @@ class PostModel extends BaseModel
             return ['success' => false, 'error' => $e->getMessage()];
         }
     }
+
+    public function selectAllPosts($uid)
+    {
+        try {
+            $sql = 'SELECT imagem, descricao, dataCriacao FROM ' . $this->table . ' WHERE id_usuario = :uid;';
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':uid', $uid);
+            $stmt->execute();
+            $posts = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $posts;
+        } catch (\PDOException $e) {
+            return ['success' => false, 'error' => $e->getMessage()];
+        }
+    }
 }
