@@ -6,6 +6,7 @@
 
     @php
     //     print_r($_SESSION);
+    //     var_dump($_SESSION['user']['pic']);
     @endphp
 
         <div class="content bg-primary d-flex align-items-center justify-content-center" style="height: fit-content; background-image: linear-gradient(180deg, black, transparent);">
@@ -14,12 +15,18 @@
 
                 
 
-                @if (isset($_SESSION['authenticated']))
+                @if (isset($_SESSION['authenticated']) && $_SESSION['authenticated'] )
+                @php
+                    
+                    $fotoPerfil = $_SESSION['user']['pic'] != null ? $_SESSION['user']['pic'] : 'person.svg';
+                    $nome = $_SESSION['user']['name'] != null ? $_SESSION['user']['name'] : null
+                @endphp
+
 
                 <div class="container p-5">
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-5 ">
-                            <img src="/WebSiteOliver/archives/users/{{$_SESSION['user']['pic']}}" class="img-fluid border rounded-circle w-50" alt="Sua Imagem">
+                            <img src="/WebSiteOliver/archives/users/{{$fotoPerfil}}" class="img-fluid border rounded-circle w-50" alt="Sua Imagem">
                         </div>
                         <div class="col-md-7" style="width: fit-content">
                             <h1 class="m-2 mx-auto">

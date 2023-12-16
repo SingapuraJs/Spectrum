@@ -1,6 +1,7 @@
 <?php 
 
 namespace Model;
+use PDOException;
 
 use Model\BaseModel;
 
@@ -45,8 +46,8 @@ class UserModel extends BaseModel
     public function updateBio($newBio, $uid)
     {
         try{
-            $sql = 'UPDATE usuario SET usr_bio = :bio WHERE id_usuario = :id;';
-            $stmt->prepare($sql);
+            $sql = 'UPDATE ' . $this->table . ' SET usr_bio = :bio WHERE id_usuario = :id;';
+            $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':bio', $newBio);
             $stmt->bindParam(':id', $uid);
             $stmt->execute();
@@ -59,8 +60,8 @@ class UserModel extends BaseModel
     public function updatePicture($newPic, $uid)
     {
         try{
-            $sql = 'UPDATE usuario SET usr_foto = :pic WHERE id_usuario = :id;';
-            $stmt->prepare($sql);
+            $sql = 'UPDATE ' . $this->table . ' SET usr_foto = :pic WHERE id_usuario = :id;';
+            $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':pic', $newPic);
             $stmt->bindParam(':id', $uid);
             $stmt->execute();

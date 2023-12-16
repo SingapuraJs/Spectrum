@@ -4,6 +4,8 @@ namespace Controller;
 
 use Controller\BaseController;
 use Flight;
+use GrahamCampbell\ResultType\Success;
+use LDAP\Result;
 use Model\UserModel;
 class UserController extends BaseController
 {
@@ -85,10 +87,10 @@ class UserController extends BaseController
     public function profile($username) 
     {
         $userAllData = $this->model->getExistent($username);
-        $controller = new PostController;
-        $userAllPosts = $controller->getPosts($userAllData['id_usuario']);
         
-        if ($userAllData != null) {
+        if ($userAllData != false) {
+            $controller = new PostController;
+            $userAllPosts = $controller->getPosts($userAllData['id_usuario']);
             $userData = [
             'id' => $userAllData['id_usuario'],
             'foto' => $userAllData['usr_foto'],
@@ -97,8 +99,32 @@ class UserController extends BaseController
             'posts' => $userAllPosts
             ];
             echo $this->blade->render('user/profile', ['userData' => $userData]);
-        };
+        }else {
+            echo $this->blade->render('error');
+        }
     }
+    public function upBio(){
+        $newBio = $_POST['bio'];
+        $id = $_SESSION['user']['id'];
+        if($newBio != null && $id != null){
+            $result = $this->model->updateBio($newBio, $id);
+            if($result['success']){
+                Flight:: redirect('/profile');
+            } else {
+                $_SESSION['feedback'] = "unexpected";
+                Flight::redirect('/profile');
+            }
+
+            
+        }
+
+        
+        
+    }    
+
+
+
+
 
 }
 

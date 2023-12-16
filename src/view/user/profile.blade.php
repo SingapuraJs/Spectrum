@@ -37,8 +37,16 @@
             <div class="col-xs-12 col-sm-12 col-md-4  ">
                 <div class="content mx-auto border rounded border-dark d-flex flex-column align-items-center text-center"
                     style="min-width: 250px; min-height: 135px; max-width: fit-content;">
-                    <small class="bg-dark border rounded  w-100 m-0 p-0 text-white">Bio</small>
-
+                    {{-- <small class="bg-dark border rounded  w-100 m-0 p-0 text-white">Bio <button data-bs-toggle="modal" data-bs-target="#updateBio">atualizar</button> </small> --}}
+                    <small class="bg-dark border rounded w-100 m-0 p-0 text-white">Bio 
+                        @if (isset($_SESSION['authenticated']) && $uid === $_SESSION['user']['id'])
+                        <button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#updateBio">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                          <path d="M12.854 0l2.793 2.793-10.646 10.647-2.792-2.792L12.854 0zm1.28 3.182-1.06 1.06-1.188-1.187 1.06-1.06 1.188 1.188zM2.646 12.354l-1.5 4.5 4.5-1.5 9.75-9.75-3-3-9.75 9.75z"/>
+                        </svg>
+                      </button>
+                    @endif
+                    </small>
                     <p>{{ $bio }}</p>
                 </div>
 
@@ -97,6 +105,39 @@
     
     </div>
   
+ <!-- Modal -->
+ <div class="modal fade" id="updateBio" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Atualizar Biografia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <form action="/WebSiteOliver/profile/{{ $nome }}/bio" method="POST">
+                         
+
+
+                    <div class="mb-3">
+                        <label for="campoTexto" class="form-label">Biografia</label>
+                        <textarea class="form-control" id="campoTexto" name="bio" placeholder="Digite aqui!" rows="5" style="resize: none;" maxlength="200"></textarea>
+                        
+                    </div>
+                    
+        
+                    <button type="submit" class="btn btn-dark">Atualizar</button>
+                
+                </form>
+
+            </div>
+        
+        </div>
+    
+    </div>
+
+</div>
 
 
 <div class="mx-auto " style="width: 90%">

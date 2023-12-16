@@ -3,6 +3,7 @@
 use Controller\AuthController;
 use Controller\PostController;
 use Controller\UserController;
+use Illuminate\Support\Facades\Auth;
 
 Flight::route('GET /register', function () {
     $controller = new UserController();
@@ -63,9 +64,22 @@ Flight::route('POST /profile/@username/post', function () {
         $auth->redirect();
     }
     $controller->doPost();
-}
+});
 
-);
+   
+
+
+
+Flight::route('POST /profile/@username/bio', function () {
+    $controller = new UserController();
+    $auth = new AuthController();
+    if($auth->verifyAuthenticated() != true){
+        $auth->redirect();
+    }
+    $controller->upBio();
+});
+
+   
 
 
 
