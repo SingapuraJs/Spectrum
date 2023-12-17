@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>@yield('title')</title>
-    <script src="/WebSiteOliver/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-    <script src="/WebSiteOliver/node_modules/sweetalert2/dist/sweetalert2.js"></script>
-    <link rel="stylesheet" href="/WebSiteOliver/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/WebSiteOliver/node_modules/sweetalert2/dist/sweetalert2.css">
-    <!-- Adicione aqui os seus estilos personalizados, se necessário -->
+    <script src="/Spectrum/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+    <script src="/Spectrum/node_modules/sweetalert2/dist/sweetalert2.js"></script>
+    <link rel="stylesheet" href="/Spectrum/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Spectrum/node_modules/sweetalert2/dist/sweetalert2.css">
+    <link rel="stylesheet" href="/Spectrum/node_modules/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 <body>
 
@@ -20,23 +20,22 @@
             <nav class="navbar navbar-light navbar-expand">
 
 
-                <a class="navbar-brand text-white" href="/WebSiteOliver/home">Início</a>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
-                            <a class="navbar-brand text-white" href="/WebSiteOliver/about">Sobre</a>
+                    <a class="navbar-brand text-white" href="/Spectrum/home"><i class="bi bi-house-fill"></i> Início</a>
                 </div>
                 <div class="ml-auto">
                 
                     @if (isset($_SESSION['authenticated']))
-                        <a href="/WebSiteOliver/logout" class="btn btn-outline-danger">Sair</a>
-                        <a href="/WebSiteOliver/profile/{{ $_SESSION['user']['name'] }}" class="btn btn-outline-light">Perfil</a>
+                        <a href="/Spectrum/logout" class="btn btn-outline-danger"><i class="bi bi-box-arrow-left"></i> Sair</a>
+                        <a href="/Spectrum/profile/{{ $_SESSION['user']['name'] }}" class="btn btn-outline-light">Perfil <i class="bi bi-person-bounding-box"></i></a>
                         
                         
                     @else
-                    <a href="/WebSiteOliver/login" class="btn btn-outline-light">Login</a>
+                    <a href="/Spectrum/login" class="btn btn-outline-light"><i class="bi bi-person-circle"></i> Login</a>
 
 
-                    <a href="/WebSiteOliver/register" class="btn btn-outline-light">Registro</a>
+                    <a href="/Spectrum/register" class="btn btn-outline-light"><i class="bi bi-person-plus"></i> Registro</a>
                         
                     @endif
                 
@@ -53,17 +52,18 @@
 <footer class="d-flex align-items-center justify-content-center" style="height: 35vh; background-color:#000000">
     <div class="container">
         <div class="row row-cols-3">
-            <a class="text-white col-12" href="https://github.com/SingapuraJs/WebSiteOliver/">
-                <span>GitHub</span>
-                <i class="bi bi-github"></i>
+            <a class="text-white col-12" href="https://github.com/SingapuraJs/Spectrum/">
+                
+                <span><i class="bi bi-github"></i> GitHub</span>
             </a>
             
             <a class="text-white col-12" href="https://www.instagram.com/ifpecampusigarassu/">
-                <span>Instagram</span>
+                
+                <span><i class="bi bi-instagram"></i> Instagram</span>
             </a>
             <br>
             <br>
-            <span class="text-white col-12">Rodovia BR-101 Norte, Km 29, Engenho Ubu, Igarassu Pernambuco.</span>
+            <span class="text-white col-12"><i class="bi bi-geo"></i> Rodovia BR-101 Norte, Km 29, Engenho Ubu, Igarassu Pernambuco.</span>
        
 
         </div>
@@ -73,7 +73,7 @@
 
 <script async src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script async src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script async src="/WebSiteOliver/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script async src="/Spectrum/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 
 
 @if (isset($_SESSION['feedback']))
@@ -140,6 +140,18 @@
                 Swal.fire({
                     tittle: 'Erro.',
                     text: 'Sessão expirada.',
+                    icon: 'error'
+                })
+            </script>
+            @php
+                unset($_SESSION['feedback']);
+            @endphp    
+
+            @case('nofile')
+            <script>
+                Swal.fire({
+                    tittle: 'Erro.',
+                    text: 'Imagem não inserida !',
                     icon: 'error'
                 })
             </script>

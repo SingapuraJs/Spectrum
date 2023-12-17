@@ -23,9 +23,14 @@ class UserController extends BaseController
 
     public function store()
     {
-
-        $uploadPath = new \Upload\Storage\FileSystem('../WebSiteOliver/archives/users');
+        if(empty($_FILES['profile_pic']['name'])){
+            $_SESSION['feedback'] = "nofile";
+            Flight::redirect('./register');
+            exit;
+        }
+        $uploadPath = new \Upload\Storage\FileSystem('../Spectrum/archives/users');
         $pic = new \Upload\File('profile_pic', $uploadPath);
+
         $new_picname = uniqid();
         $new_picname = md5($new_picname);
         $pic->setName($new_picname);
@@ -122,6 +127,54 @@ class UserController extends BaseController
         
     }    
 
+
+    public function updatePic(){
+
+        $uploadPath = new \Upload\Storage\FileSystem('../Spectrum/archives/users');
+        $pic = new \Upload\File('newPicture', $uploadPath);
+
+        $new_picname = uniqid();
+        $new_picname = md5($new_picname);
+        $pic->setName($new_picname);
+
+        $pic->addValidations(array(
+            // Ensure file is of type "image/png"
+            new \Upload\Validation\Mimetype(array('image/png', 'image/jpg', 'image/jpeg', 'image/gif')),
+        
+            //You can also add multi mimetype validation
+            //new \Upload\Validation\Mimetype(array('image/png', 'image/gif'))
+        
+            // Ensure file is no larger than 5M (use "B", "K", M", or "G")
+            new \Upload\Validation\Size('16M')
+        ));
+
+        $picData = array(
+            'name'       => $pic->getNameWithExtension(),
+            'extension'  => $pic->getExtension(),
+            'mime'       => $pic->getMimetype(),
+            'size'       => $pic->getSize(),
+        );
+
+
+
+        $newPic = $pic->getNameWithExtension();
+        $id = $_SESSION['user']['id'];
+        if($newPic != null && $id != null){
+            $pic->upload();
+            $result = $this->model->update('usr_foto', $newPic, $id);
+            if($result['success']){
+                Flight:: redirect('/profile');
+            } else {
+                $_SESSION['feedback'] = "unexpected";
+                Flight::redirect('/profile');
+            }
+
+            
+        }
+
+        
+        
+    }    
 
 
 

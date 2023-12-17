@@ -16,7 +16,7 @@ class PostController extends BaseController
 
     public function doPost()
     {
-        $uploadPath = new \Upload\Storage\FileSystem('../WebSiteOliver/archives/posts');
+        $uploadPath = new \Upload\Storage\FileSystem('../Spectrum/archives/posts');
         $post = new \Upload\File('img', $uploadPath);
         $new_postName = uniqid();
         $new_postName = md5($new_postName);

@@ -26,14 +26,14 @@
                 <div class="container p-5">
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-5 ">
-                            <img src="/WebSiteOliver/archives/users/{{$fotoPerfil}}" class="img-fluid border rounded-circle w-50" alt="Sua Imagem">
+                            <img src="/Spectrum/archives/users/{{$fotoPerfil}}" class="img-fluid border rounded-circle w-50" alt="Sua Imagem">
                         </div>
                         <div class="col-md-7" style="width: fit-content">
                             <h1 class="m-2 mx-auto">
                                 <span class="d-none d-md-inline " style="font-size: 84px">Olá, {{ucfirst($_SESSION['user']['name'] . '!')}}</span>
                                 <span class="d-md-none" style="font-size: 36px">Olá, {{ucfirst($_SESSION['user']['name'] . '!')}}</span>
                             </h1>
-                            <a class=" btn btn-dark text-white mt-5 float-end" href="/WebSiteOliver/profile/{{ $_SESSION['user']['name'] }}">Acessar perfil</a>
+                            <a class=" btn btn-dark text-white mt-5 float-end" href="/Spectrum/profile/{{ $_SESSION['user']['name'] }}">Acessar perfil</a>
 
                         </div>
                         
@@ -53,7 +53,7 @@
                             
                             <div style="height: 10vh;"></div>
 
-                            <a class="text-center btn btn-dark text-white link-dark" href="#">Cadastre-se</a>
+                            <a class="text-center btn btn-dark text-white link-dark" href="./register">Cadastre-se</a>
 
                             <div style="height: 5vh;"></div>
 
@@ -63,7 +63,7 @@
 
                             <div style="height: 10vh;"></div>
 
-                            <a class="text-center  btn btn-dark text-white link-dark" href="#">Entrar</a>
+                            <a class="text-center  btn btn-dark text-white link-dark" href="./login">Entrar</a>
                         </div>
                     </div>
                 

@@ -79,7 +79,17 @@ Flight::route('POST /profile/@username/bio', function () {
     $controller->updateBio();
 });
 
-   
+Flight::route('POST /profile/@username/image', function () {
+
+
+    $controller = new UserController();
+    $auth = new AuthController();
+    if($auth->verifyAuthenticated() != true){
+        $auth->redirect();
+    }
+    $controller->updatePic();
+});
+
 
 
 

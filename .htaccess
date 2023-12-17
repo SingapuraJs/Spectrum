@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /WebSiteOliver
+    RewriteBase /Spectrum
 
     # Redirecionar todas as solicitações para o arquivo index.php, exceto se o arquivo ou diretório existir
     RewriteCond %{REQUEST_FILENAME} !-f

@@ -31,7 +31,7 @@ class PostModel extends BaseModel
     public function selectAllPosts($uid)
     {
         try {
-            $sql = 'SELECT imagem, descricao, dataCriacao FROM ' . $this->table . ' WHERE id_usuario = :uid;';
+            $sql = 'SELECT id, imagem, descricao, dataCriacao FROM ' . $this->table . ' WHERE id_usuario = :uid;';
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':uid', $uid);
             $stmt->execute();
