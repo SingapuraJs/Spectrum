@@ -103,11 +103,11 @@ class UserController extends BaseController
             echo $this->blade->render('error');
         }
     }
-    public function upBio(){
+    public function updateBio(){
         $newBio = $_POST['bio'];
         $id = $_SESSION['user']['id'];
         if($newBio != null && $id != null){
-            $result = $this->model->updateBio($newBio, $id);
+            $result = $this->model->update('usr_bio', $newBio, $id);
             if($result['success']){
                 Flight:: redirect('/profile');
             } else {

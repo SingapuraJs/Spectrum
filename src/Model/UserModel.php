@@ -43,31 +43,49 @@ class UserModel extends BaseModel
         }
     }
 
-    public function updateBio($newBio, $uid)
-    {
-        try{
-            $sql = 'UPDATE ' . $this->table . ' SET usr_bio = :bio WHERE id_usuario = :id;';
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':bio', $newBio);
-            $stmt->bindParam(':id', $uid);
-            $stmt->execute();
-            return ['success' => true];
-        }catch (PDOException $e){
-            return ['success' => false, 'error' => $e->getMessage()];
-        }
-    }
+    // public function updateBio($newBio, $uid)
+    // {
+    //     try{
+    //         $sql = 'UPDATE ' . $this->table . ' SET usr_bio = :bio WHERE id_usuario = :id;';
+    //         $stmt = $this->conn->prepare($sql);
+    //         $stmt->bindParam(':bio', $newBio);
+    //         $stmt->bindParam(':id', $uid);
+    //         $stmt->execute();
+    //         return ['success' => true];
+    //     }catch (PDOException $e){
+    //         return ['success' => false, 'error' => $e->getMessage()];
+    //     }
+    // }
 
-    public function updatePicture($newPic, $uid)
+    // public function updatePicture($newPic, $uid)
+    // {
+    //     try{
+    //         $sql = 'UPDATE ' . $this->table . ' SET usr_foto = :pic WHERE id_usuario = :id;';
+    //         $stmt = $this->conn->prepare($sql);
+    //         $stmt->bindParam(':pic', $newPic);
+    //         $stmt->bindParam(':id', $uid);
+    //         $stmt->execute();
+    //         return ['success' => true];
+    //     }catch (PDOException $e){
+    //         return ['success' => false, 'error' => $e->getMessage()];
+    //     }
+    // }
+
+    public function update($column , $value, $uid)
     {
-        try{
-            $sql = 'UPDATE ' . $this->table . ' SET usr_foto = :pic WHERE id_usuario = :id;';
+        try {
+
+            $sql = 'UPDATE ' . $this->table . ' SET ' . $column . ' = :value WHERE id_usuario = :id;';
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':pic', $newPic);
+            $stmt->bindParam(':value', $value);
             $stmt->bindParam(':id', $uid);
             $stmt->execute();
             return ['success' => true];
-        }catch (PDOException $e){
+
+        } catch (PDOException $e){
+
             return ['success' => false, 'error' => $e->getMessage()];
+
         }
     }
     
@@ -94,8 +112,11 @@ class UserModel extends BaseModel
                 $stmt->bindParam(':username', $username);
                 $stmt->execute();
                 return $stmt->fetch(\PDO::FETCH_ASSOC);
+
             } catch (\PDOException $e) {
+                
                 return ['success' => false, 'error' => $e->getMessage()];
+                
             }
         }
 }

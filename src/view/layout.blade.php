@@ -53,16 +53,17 @@
 <footer class="d-flex align-items-center justify-content-center" style="height: 35vh; background-color:#000000">
     <div class="container">
         <div class="row row-cols-3">
-            <a class="text-white col-12" href="">
-                GitHub
+            <a class="text-white col-12" href="https://github.com/SingapuraJs/WebSiteOliver/">
+                <span>GitHub</span>
+                <i class="bi bi-github"></i>
             </a>
             
-            <a class="text-white col-12" href="">
-                Instagram
+            <a class="text-white col-12" href="https://www.instagram.com/ifpecampusigarassu/">
+                <span>Instagram</span>
             </a>
             <br>
             <br>
-            <p class="text-white col-12">Rodovia BR-101 Norte, Km 29, Engenho Ubu, Igarassu Pernambuco.</p>
+            <span class="text-white col-12">Rodovia BR-101 Norte, Km 29, Engenho Ubu, Igarassu Pernambuco.</span>
        
 
         </div>

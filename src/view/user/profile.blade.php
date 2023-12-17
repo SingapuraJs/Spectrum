@@ -36,7 +36,7 @@
         <div class="row justify-content-center ">
             <div class="col-xs-12 col-sm-12 col-md-4  ">
                 <div class="content mx-auto border rounded border-dark d-flex flex-column align-items-center text-center"
-                    style="min-width: 250px; min-height: 135px; max-width: fit-content;">
+                    style="min-width: 250px; min-height: 135px;">
                     {{-- <small class="bg-dark border rounded  w-100 m-0 p-0 text-white">Bio <button data-bs-toggle="modal" data-bs-target="#updateBio">atualizar</button> </small> --}}
                     <small class="bg-dark border rounded w-100 m-0 p-0 text-white">Bio 
                         @if (isset($_SESSION['authenticated']) && $uid === $_SESSION['user']['id'])
@@ -47,7 +47,7 @@
                       </button>
                     @endif
                     </small>
-                    <p>{{ $bio }}</p>
+                    <span class="text-justify">{{ $bio }}</span>
                 </div>
 
             </div>
@@ -58,7 +58,7 @@
     
     <div class=" mx-auto " style="width: 90%; height: fit-content;">
         
-        <button type="button" class="text-center btn btn-dark text-white my-1" data-bs-toggle="modal" data-bs-target="#newPost">
+        <button type="button" class="text-center btn btn-dark text-white my-1   " data-bs-toggle="modal" data-bs-target="#newPost">
             Criar novo post
         </button>
     </div>

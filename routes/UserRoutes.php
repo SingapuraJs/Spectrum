@@ -76,7 +76,7 @@ Flight::route('POST /profile/@username/bio', function () {
     if($auth->verifyAuthenticated() != true){
         $auth->redirect();
     }
-    $controller->upBio();
+    $controller->updateBio();
 });
 
    

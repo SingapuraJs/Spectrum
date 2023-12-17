@@ -13,7 +13,7 @@
             <div class="form-group">
     
                 <label>Usuário</label>
-                <input type="text" class="form-control" name="username" required placeholder="Digite seu usuário.">
+                <input type="text" class="form-control" name="username" required >
     
             </div>
             
@@ -21,11 +21,11 @@
             <div class="form-group">
              
                 <label>Senha</label>
-                <input type="password" class="form-control" name="password" required placeholder=" Digite sua senha.">
+                <input type="password" class="form-control" name="password" required >
     
             </div>
     
-            <div class="float-end">
+            <div class="">
                 <button type="submit" class="btn btn-dark mt-4">Entrar</button>
             </div>
             
