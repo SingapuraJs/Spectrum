@@ -8,7 +8,7 @@
 
     $foto = $userData['foto'] === null ? 'person.svg' : $userData['foto'];
         $nome = $userData['nome'];
-        $bio = $userData['bio'] === null ? 'nada ainda -_-' : $userData['bio'];
+        $bio = $userData['bio'] === null ? '' : $userData['bio'];
         $uid = $userData['id'];
         $posts = $userData['posts'];
         // echo "<pre>";
@@ -28,7 +28,7 @@
 
                 @if (isset($_SESSION['authenticated']) && $uid === $_SESSION['user']['id'])
                 <button type="button" style="height: fit-content" class="border-0"  data-bs-toggle="modal" data-bs-target="#updatePicture">
-                    <i class="bi bi-upload"></i>
+                    <i class="bi bi-arrow-repeat"></i>
                 </button>
                 @endif
 
@@ -73,7 +73,7 @@
         </h1>
 
 
-        <div class="row justify-content-center ">
+        <div class="row justify-content-center py-1">
             <div class="col-xs-12 col-sm-12 col-md-4  ">
                 <div class="content mx-auto border rounded border-dark d-flex flex-column align-items-center text-center"
                     style="min-width: 250px; min-height: 135px;">
@@ -95,7 +95,7 @@
 
 @if (isset($_SESSION['authenticated']) && $uid === $_SESSION['user']['id'])
     
-    <div class=" mx-auto " style="width: 90%; height: fit-content;">
+    <div class=" mx-auto d-flex justify-content-end p-1" style="height: fit-content;">
         
         <button type="button" class="text-center btn btn-dark text-white my-1   " data-bs-toggle="modal" data-bs-target="#newPost">
             <i class="bi bi-plus"></i>  Criar novo post
@@ -189,7 +189,7 @@
 </div>
 
 
-<div class="mx-auto " style="width: 90%">
+<div class="mx-auto ">
   
 
     <div class="border border border rounded border-dark border-dark">

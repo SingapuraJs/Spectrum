@@ -7,10 +7,6 @@ class HomeController extends BaseController
     {
         return $this->blade->render('home');
     }
-    public function about()
-    {
-        return $this->blade->render('about');
-    }
 }
 
 ?>

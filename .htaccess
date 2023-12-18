@@ -9,3 +9,19 @@
 
     
 </IfModule>
+
+Options -Indexes
+
+<Files "login.blade.php">
+    Order Deny,Allow
+    Deny from all
+</Files>
+<Files "create.blade.php">
+    Order Deny,Allow
+    Deny from all
+</Files>
+<Files "profile.blade.php">
+    Order Deny,Allow
+    Deny from all
+</Files>
+

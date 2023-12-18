@@ -147,11 +147,11 @@
                 unset($_SESSION['feedback']);
             @endphp    
 
-            @case('nofile')
+            @case('empty')
             <script>
                 Swal.fire({
                     tittle: 'Erro.',
-                    text: 'Imagem não inserida !',
+                    text: 'Alguma das exigências não foram atendidas.',
                     icon: 'error'
                 })
             </script>

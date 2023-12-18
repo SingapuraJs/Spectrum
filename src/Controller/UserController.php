@@ -23,8 +23,15 @@ class UserController extends BaseController
 
     public function store()
     {
-        if(empty($_FILES['profile_pic']['name'])){
-            $_SESSION['feedback'] = "nofile";
+        $all = [$_FILES['profile_pic']['name'], $_POST['username'], $_POST['email'],  $_POST['password']];
+        $isEmpty = in_array("", $all);
+        // echo '<pre>';
+        // var_dump($all);
+        // var_dump($isEmpty);
+        // echo '</pre>';
+        
+        if($isEmpty){
+            $_SESSION['feedback'] = "empty";
             Flight::redirect('./register');
             exit;
         }

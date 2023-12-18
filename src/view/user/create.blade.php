@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="col-7 ">
-                    <small class="text-danger text-center" style="font-style: italic">foto de perfil</small>
+                    <small class="text-center" style="font-style: italic">foto de perfil*</small>
                 </div>
             </div>
 
@@ -31,21 +31,21 @@
     
             <div class="form-group">
     
-                <label>Usuário</label>
+                <label>Usuário*</label>
                 <input type="text" class="form-control" name="username" required onkeypress="return event.charCode != 32">
     
             </div>
     
             <div class="form-group">
                 
-                <label>E-mail</label>
+                <label>E-mail*</label>
                 <input type="email" class="form-control" name="email" required onkeypress="return event.charCode != 32">
     
             </div>
             
             <div class="form-group">
              
-                <label>Senha</label>
+                <label>Senha*</label>
                 <input type="password" class="form-control" name="password" pattern=".{6,}" required title="Sua senha deve ter no minimo 6 caracteres." senha." onkeypress="return event.charCode != 32">
     
             </div>
