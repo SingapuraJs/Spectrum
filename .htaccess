@@ -25,3 +25,20 @@ Options -Indexes
     Deny from all
 </Files>
 
+<Files "about.blade.php">
+    Order Deny,Allow
+    Deny from all
+</Files>
+<Files "profile.blade.php">
+    Order Deny,Allow
+    Deny from all
+</Files>
+<Files "profile.blade.php">
+    Order Deny,Allow
+    Deny from all
+</Files>
+<Files "profile.blade.php">
+    Order Deny,Allow
+    Deny from all
+</Files>
+

@@ -68,8 +68,6 @@ Flight::route('POST /profile/@username/post', function () {
 
    
 
-
-
 Flight::route('POST /profile/@username/bio', function () {
     $controller = new UserController();
     $auth = new AuthController();
@@ -86,10 +84,22 @@ Flight::route('POST /profile/@username/image', function () {
     $auth = new AuthController();
     if($auth->verifyAuthenticated() != true){
         $auth->redirect();
+        Flight::redirect('/login');
     }
     $controller->updatePic();
 });
 
+Flight::route('POST /profile/@username/delete/@id', function(){
 
+    $controller = new PostController;
+    $auth = new AuthController();
+    if($auth->verifyAuthenticated() != true){
+        $auth->redirect();
+        Flight::redirect('/login');
+    }
+    $controller->deletePost();
+}
+
+);
 
 

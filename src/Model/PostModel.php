@@ -41,4 +41,19 @@ class PostModel extends BaseModel
             return ['success' => false, 'error' => $e->getMessage()];
         }
     }
+
+ 
+    public function deleteById($id, $uid)
+    {
+        try {
+            $sql = 'DELETE FROM ' . $this->table . ' WHERE id = :id AND id_usuario = :uid';
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':uid', $uid);
+            $stmt->execute();
+            return ['success' => true];
+        } catch (\PDOException $e) {
+            return ['success' => false, 'error' => $e->getMessage()];
+        }
+    }
 }

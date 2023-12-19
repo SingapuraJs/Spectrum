@@ -60,9 +60,19 @@ class PostController extends BaseController
         return $this->model->selectAllPosts($id);
     }
 
-    public function bioUpdate()
+    public function deletePost()
     {
-        return $this->model->updateBio();
+        $id = $_POST['id'];
+        $uid = $_POST['uid'];
+        $result = $this->model->deleteById($id, $uid);
+        if($result['success']){
+            $_SESSION['feedback'] = 'deleted';
+            Flight::redirect('/profile');
+        } else {
+            $_SESSION['feedback'] = 'unexpected';
+            Flight::redirect('/profile');
+            
+        }
     }
 }
 

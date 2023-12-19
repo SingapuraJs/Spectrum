@@ -22,16 +22,19 @@
 
     <div class="bg-light m-1">
 
+        @if (isset($_SESSION['authenticated']) && $uid === $_SESSION['user']['id'])
+        <div class="d-flex justify-content-center">
+
+            <button type="button" style="height: fit-content" class="border-0"  data-bs-toggle="modal" data-bs-target="#updatePicture">
+                <i class="bi bi-arrow-repeat"></i>
+            </button>
+        </div>
+        @endif
         <div class="d-flex justify-content-center pt-3" style="height: fit-content">
             <img src="/Spectrum/archives/users/{{ $foto }}" class="shadow-lg p-3 img-fluid"
                 style=" height: 250px; width:250px; background-color: white; border-radius: 50%">{{-- foto de perfil  --}}
 
-                @if (isset($_SESSION['authenticated']) && $uid === $_SESSION['user']['id'])
-                <button type="button" style="height: fit-content" class="border-0"  data-bs-toggle="modal" data-bs-target="#updatePicture">
-                    <i class="bi bi-arrow-repeat"></i>
-                </button>
-                @endif
-
+                
             </div>
 
             <div class="modal fade" id="updatePicture" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -209,9 +212,9 @@
             @else
 
                 @php
-                        usort($posts, function ($a, $b) {
-        return strtotime($b['dataCriacao']) - strtotime($a['dataCriacao']);
-    });
+                usort($posts, function ($a, $b) {
+                return strtotime($b['dataCriacao']) - strtotime($a['dataCriacao']);
+                });
                 @endphp
                 
                 @foreach ($posts as $post)
@@ -241,6 +244,13 @@
                                 <img src="/Spectrum/archives/posts/{{ $post['imagem'] }}" class="img-fluid rounded" alt="Imagem {{ $post['id'] }}">
                                 
                             </div>
+                            @if (isset($_SESSION['authenticated']) && $uid === $_SESSION['user']['id'])
+                            <form action="./{{ $nome }}/delete/{{ $post['id'] }}" method="post">
+                                <input value="{{$post['id']}}" class="d-none" name="id">
+                                <input value="{{ $uid }}" class="d-none" name="uid">
+                                <button type="submit" class="btn btn-danger text-white m-3 float-end" id="deletePostBtn">Deletar</button>
+                            </form>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -275,7 +285,9 @@
     </div>
 
     <script>
-         document.getElementById('newPostImage').addEventListener('change', function(event) {
+
+
+        document.getElementById('newPostImage').addEventListener('change', function(event) {
         // Obtém o elemento de imagem de preview
         var previewPost = document.getElementById('previewPost');
 

@@ -75,30 +75,13 @@
 
         </div>
 
-        <div class="container my-5 " >
-            <div class="row">
-
-                <div class="col-12 col-sm-4">
-
-                    <div class="mx-2 my-2" style="background-color: rgb(29, 137, 137); height: 50vh;"></div>
-
-                </div>
-
-                <div class="col-12 col-sm-4">
-
-                    <div class="mx-2 my-2" style="background-color: blueviolet; (2, 2, 2); height: 50vh;"></div>
-
-                </div>
-
-                <div class="col-12 col-sm-4">
-
-                    <div class="mx-2 my-2" style="background-color: brown; height: 50vh;"></div>
-
-                </div>
-
-            </div>
-
+        <div class="container p-5 text-center" style="height: 35vh">
+            <article>
+                <h2 class="mb-4">O que é Spectrum?</h2>
+                <p class="lead">Spectrum é uma galeria virtual, projetada para pessoas que buscam um lugar para organizar e publicar suas fotos de maneira simples e intuitiva.</p>
+            </article>
         </div>
+        
 
 
 

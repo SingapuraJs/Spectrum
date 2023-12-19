@@ -51,20 +51,25 @@
 
 <footer class="d-flex align-items-center justify-content-center" style="height: 35vh; background-color:#000000">
     <div class="container">
-        <div class="row row-cols-3">
-            <a class="text-white col-12" href="https://github.com/SingapuraJs/Spectrum/">
-                
-                <span><i class="bi bi-github"></i> GitHub</span>
-            </a>
-            
-            <a class="text-white col-12" href="https://www.instagram.com/ifpecampusigarassu/">
-                
-                <span><i class="bi bi-instagram"></i> Instagram</span>
-            </a>
-            <br>
-            <br>
-            <span class="text-white col-12"><i class="bi bi-geo"></i> Rodovia BR-101 Norte, Km 29, Engenho Ubu, Igarassu Pernambuco.</span>
-       
+        <div class="row ">
+            <div class="col-6 ">
+
+                <a class="text-white" href="https://github.com/SingapuraJs/Spectrum/">
+                    
+                    <span><i class="bi bi-github"></i> Spectrum</span>
+                </a>
+                <br>
+                <a class="text-white" href="https://www.instagram.com/ifpecampusigarassu/">
+                    
+                    <span><i class="bi bi-instagram"></i> ifpecampusigarassu</span>
+                </a>
+                <br>
+                <br>
+                <small class="text-white">Endereço:</small>
+                <br>
+                <span class="text-white"><i class="bi bi-geo"></i> Rodovia BR-101 Norte, Km 29, Engenho Ubu, Igarassu Pernambuco.</span>
+           
+            </div>
 
         </div>
     </div>

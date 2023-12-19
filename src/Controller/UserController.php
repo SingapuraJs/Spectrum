@@ -4,8 +4,6 @@ namespace Controller;
 
 use Controller\BaseController;
 use Flight;
-use GrahamCampbell\ResultType\Success;
-use LDAP\Result;
 use Model\UserModel;
 class UserController extends BaseController
 {
@@ -25,16 +23,15 @@ class UserController extends BaseController
     {
         $all = [$_FILES['profile_pic']['name'], $_POST['username'], $_POST['email'],  $_POST['password']];
         $isEmpty = in_array("", $all);
-        // echo '<pre>';
-        // var_dump($all);
-        // var_dump($isEmpty);
-        // echo '</pre>';
+
         
         if($isEmpty){
             $_SESSION['feedback'] = "empty";
             Flight::redirect('./register');
             exit;
         }
+
+
         $uploadPath = new \Upload\Storage\FileSystem('../Spectrum/archives/users');
         $pic = new \Upload\File('profile_pic', $uploadPath);
 
@@ -43,13 +40,7 @@ class UserController extends BaseController
         $pic->setName($new_picname);
 
         $pic->addValidations(array(
-            // Ensure file is of type "image/png"
             new \Upload\Validation\Mimetype(array('image/png', 'image/jpg', 'image/jpeg', 'image/gif')),
-        
-            //You can also add multi mimetype validation
-            //new \Upload\Validation\Mimetype(array('image/png', 'image/gif'))
-        
-            // Ensure file is no larger than 5M (use "B", "K", M", or "G")
             new \Upload\Validation\Size('16M')
         ));
 
@@ -145,13 +136,8 @@ class UserController extends BaseController
         $pic->setName($new_picname);
 
         $pic->addValidations(array(
-            // Ensure file is of type "image/png"
             new \Upload\Validation\Mimetype(array('image/png', 'image/jpg', 'image/jpeg', 'image/gif')),
         
-            //You can also add multi mimetype validation
-            //new \Upload\Validation\Mimetype(array('image/png', 'image/gif'))
-        
-            // Ensure file is no larger than 5M (use "B", "K", M", or "G")
             new \Upload\Validation\Size('16M')
         ));
 
