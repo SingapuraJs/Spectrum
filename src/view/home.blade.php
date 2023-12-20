@@ -75,7 +75,7 @@
 
         </div>
 
-        <div class="container p-5 text-center" style="height: 35vh">
+        <div class="container p-3  text-center" style="height: 35vh">
             <article>
                 <h2 class="mb-4">O que é Spectrum?</h2>
                 <p class="lead">Spectrum é uma galeria virtual, projetada para pessoas que buscam um lugar para organizar e publicar suas fotos de maneira simples e intuitiva.</p>

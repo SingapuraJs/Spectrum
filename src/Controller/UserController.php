@@ -73,8 +73,20 @@ class UserController extends BaseController
             try {
                 $pic->upload();
             } catch (\Exception $e) {
+                $errors = $pic->getErrors();
+                var_dump($errors);
+
+                $fileSizeError = 'File size is too large';
+
+                if($errors[0] === $fileSizeError){
+                    $_SESSION['feedback'] = 'fileSize';
+                    Flight::redirect('/register');
+                    exit;
+                }
+
                 $_SESSION['feedback'] = 'unexpected';
                 Flight::redirect('/register');
+                exit;
             }
 
             $result = $this->model->add($userData);
@@ -153,7 +165,27 @@ class UserController extends BaseController
         $newPic = $pic->getNameWithExtension();
         $id = $_SESSION['user']['id'];
         if($newPic != null && $id != null){
-            $pic->upload();
+            
+            
+            try {
+                $pic->upload();
+            } catch (\Exception $e) {
+                $errors = $pic->getErrors();
+                var_dump($errors);
+
+                $fileSizeError = 'File size is too large';
+
+                if($errors[0] === $fileSizeError){
+                    $_SESSION['feedback'] = 'fileSize';
+                    Flight::redirect('/profile');
+                    exit;
+                }
+                $_SESSION['feedback'] = 'unexpected';
+                Flight::redirect('/profile');
+                exit;
+            }
+            
+            
             $result = $this->model->update('usr_foto', $newPic, $id);
             if($result['success']){
                 Flight:: redirect('/profile');

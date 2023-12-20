@@ -53,21 +53,25 @@
     <div class="container">
         <div class="row ">
             <div class="col-6 ">
+                <ul>
 
-                <a class="text-white" href="https://github.com/SingapuraJs/Spectrum/">
-                    
-                    <span><i class="bi bi-github"></i> Spectrum</span>
-                </a>
-                <br>
-                <a class="text-white" href="https://www.instagram.com/ifpecampusigarassu/">
-                    
-                    <span><i class="bi bi-instagram"></i> ifpecampusigarassu</span>
-                </a>
-                <br>
-                <br>
-                <small class="text-white">Endereço:</small>
-                <br>
-                <span class="text-white"><i class="bi bi-geo"></i> Rodovia BR-101 Norte, Km 29, Engenho Ubu, Igarassu Pernambuco.</span>
+                    <li>
+                        <a class="text-white" href="https://github.com/SingapuraJs/Spectrum/" target="_blank">
+                        <span><i class="bi bi-github"></i> Spectrum</span>
+                        </a>    
+                    </li>
+
+                    <li>
+                        <a class="text-white" href="https://www.instagram.com/ifpecampusigarassu/">
+                        <span><i class="bi bi-instagram"></i> IFPE</span>
+                        </a>
+                    </li>
+
+                    <li>
+                    <span class="text-white"><i class="bi bi-geo"></i> Rodovia BR-101 Norte, Km 29, Engenho Ubu, Igarassu Pernambuco.</span>
+                    </li>
+
+                </ul>
            
             </div>
 
@@ -98,7 +102,20 @@
             @endphp      
 
         @break
+        @case('fileSize')
+            
+            <script>
+                Swal.fire({
+                    title: 'Arquivo muito grande!',
+                    text: 'Tente uma imagem menor que 16MB.',
+                    icon: 'warning'
+                })
+            </script>
+            @php
+                unset($_SESSION['feedback']);
+            @endphp      
 
+        @break
         @case('unexpected')
         
             <script>

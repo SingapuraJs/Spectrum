@@ -42,9 +42,24 @@ class PostController extends BaseController
             'desc' => $_POST['desc'],
             'id' => $_SESSION['user']['id']
         ];
+        try {
+            $post->upload();
+            $result = $this->model->make($postData);
+        } catch (\Exception $e) {
+            $errors = $post->getErrors();
+            var_dump($errors);
 
-        $post->upload();
-        $result = $this->model->make($postData);
+            $fileSizeError = 'File size is too large';
+
+            if($errors[0] === $fileSizeError){
+                $_SESSION['feedback'] = 'fileSize';
+                Flight::redirect('/profile');
+                exit;
+            }
+            $_SESSION['feedback'] = 'unexpected';
+            Flight::redirect('/profile');
+            exit;
+        }
 
         if($result['success']){
             $_SESSION['feedback'] = 'success';
