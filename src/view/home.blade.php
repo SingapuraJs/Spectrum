@@ -26,7 +26,7 @@
                 <div class="container p-5">
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-5 ">
-                            <img src="/Spectrum/archives/users/{{$fotoPerfil}}" class="img-fluid border rounded-circle w-50" alt="Sua Imagem">
+                            <img src="/Spectrum/archives/users/{{$fotoPerfil}}" class="img-fluid border rounded-circle " alt="Sua Imagem" style=" height: 250px; width:250px;">
                         </div>
                         <div class="col-md-7" style="width: fit-content">
                             <h1 class="m-2 mx-auto">
