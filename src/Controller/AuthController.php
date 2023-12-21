@@ -16,6 +16,10 @@ class AuthController extends BaseController
 
     public function login()
     {
+        if ($_SESSION['authenticated']){
+            Flight::redirect('/home');
+            exit;
+        }
         return $this->blade->render('user/login');
     }
 
