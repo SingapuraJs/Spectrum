@@ -16,7 +16,7 @@ class UserController extends BaseController
 
     public function create()
     {
-        if ($_SESSION['authenticated']){
+        if (isset($_SESSION['authenticated'])){
             Flight::redirect('/home');
             exit;
         }

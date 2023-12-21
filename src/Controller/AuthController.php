@@ -16,7 +16,7 @@ class AuthController extends BaseController
 
     public function login()
     {
-        if ($_SESSION['authenticated']){
+        if (isset($_SESSION['authenticated'])){
             Flight::redirect('/home');
             exit;
         }
